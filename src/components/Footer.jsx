@@ -90,24 +90,24 @@ export default function Footer() {
             <Link to="/" className="get_page" data-page="index">
               Home
             </Link>
-            <a href="/shop/" className="get_page" data-page="shop">
+            <Link to="/shop" className="get_page" data-page="shop">
               Shop
-            </a>
-            <a href="/vip/" className="get_page" data-page="vip">
+            </Link>
+            <Link to="/vip" className="get_page" data-page="vip">
               VIP
-            </a>
-            <a href="/contacts/" className="get_page" data-page="contacts">
+            </Link>
+            <Link to="/contacts" className="get_page" data-page="contacts">
               Contacts
-            </a>
-            <a href="/privacy-policy/" className="get_page" data-page="privacy-policy">
+            </Link>
+            <Link to="/privacy-policy" className="get_page" data-page="privacy-policy">
               Privacy Policy
-            </a>
-            <a href="/terms/" className="get_page" data-page="terms">
+            </Link>
+            <Link to="/terms" className="get_page" data-page="terms">
               Terms
-            </a>
-            <a href="/refund-policy/" className="get_page" data-page="refund-policy">
+            </Link>
+            <Link to="/refund-policy" className="get_page" data-page="refund-policy">
               Refund Policy
-            </a>
+            </Link>
           </div>
           <div className="footer-cards">
             <img src="/images/visa.svg" alt="Visa" width="40" height="25" />

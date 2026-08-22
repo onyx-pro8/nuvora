@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { PRODUCT } from '../data/site'
 
 const CheckIcon = () => (
@@ -44,14 +45,14 @@ export default function FeaturedProduct() {
               ${PRODUCT.price} <span>/ bottle</span>
               <s>${PRODUCT.compareAtPrice}</s>
             </div>
-            <a
-              href={`/product/?sku=${PRODUCT.sku}`}
+            <Link
+              to={`/product?sku=${PRODUCT.sku}`}
               className="btn-primary get_page"
               data-page="product"
               data-order-type={PRODUCT.sku}
             >
               Shop Now
-            </a>
+            </Link>
             <p className="product-seller">Seller: {PRODUCT.seller}</p>
           </div>
         </div>

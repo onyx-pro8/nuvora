@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { PRODUCT } from '../data/site'
 
 export default function Hero() {
@@ -32,17 +33,17 @@ export default function Hero() {
                 vegan, gluten-free, and made in the USA.
               </p>
               <div className="hero-cta-group">
-                <a href="/shop/" className="hero-btn-primary get_page" data-page="shop">
+                <Link to="/shop" className="hero-btn-primary get_page" data-page="shop">
                   Shop Now
-                </a>
-                <a
-                  href={`/product/?sku=${PRODUCT.sku}`}
+                </Link>
+                <Link
+                  to={`/product?sku=${PRODUCT.sku}`}
                   className="hero-btn-outline get_page"
                   data-page="product"
                   data-order-type={PRODUCT.sku}
                 >
                   Learn More
-                </a>
+                </Link>
               </div>
             </div>
             <div className="home-right">

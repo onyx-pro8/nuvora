@@ -1,0 +1,716 @@
+/* =========================================================================
+   Tokyos Health - Product Detail Page Styles
+   Earthy green (#1B5E3B) / golden brown (#8BC34A) palette
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   Breadcrumb
+   ------------------------------------------------------------------------- */
+.product-breadcrumb {
+  padding: 16px 0;
+  font-size: 14px;
+  color: var(--color-text-tertiary, #7A7A6A);
+  background: var(--color-surface-dark, #E4F0DC);
+}
+
+.product-breadcrumb a {
+  color: var(--color-primary, #1B5E3B);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.product-breadcrumb a:hover {
+  color: var(--color-primary-light, #3D9A55);
+  text-decoration: underline;
+}
+
+.breadcrumb-sep {
+  margin: 0 8px;
+  color: var(--color-light-gray, #A4A090);
+}
+
+.breadcrumb-current {
+  color: var(--color-text-primary, #1A1A0E);
+  font-weight: 500;
+}
+
+/* -------------------------------------------------------------------------
+   Product Detail Layout
+   ------------------------------------------------------------------------- */
+.product-detail {
+  padding: 40px 0 60px;
+}
+
+.product-detail__layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* Left: Image & Gallery */
+.product-detail__image {
+  position: sticky;
+  top: 24px;
+}
+
+/* -------------------------------------------------------------------------
+   Product Gallery
+   ------------------------------------------------------------------------- */
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.product-gallery__main {
+  background: var(--color-surface-dark, #E4F0DC);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.product-gallery__main img {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+}
+
+.product-gallery__thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #C4C0B4 transparent;
+}
+
+.product-gallery__thumbs::-webkit-scrollbar {
+  height: 4px;
+}
+
+.product-gallery__thumbs::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.product-gallery__thumbs::-webkit-scrollbar-thumb {
+  background: #C4C0B4;
+  border-radius: 4px;
+}
+
+.gallery-thumb {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+  border: 2px solid #E8DED8;
+  border-radius: 10px;
+  padding: 4px;
+  cursor: pointer;
+  background: var(--color-white, #fff);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.gallery-thumb:hover {
+  border-color: var(--color-primary-light, #3D9A55);
+}
+
+.gallery-thumb.active {
+  border-color: var(--color-primary, #1B5E3B);
+  box-shadow: 0 0 0 1px var(--color-primary, #1B5E3B);
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Right: Info */
+.product-detail__info {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* -------------------------------------------------------------------------
+   Product Header
+   ------------------------------------------------------------------------- */
+.product-category {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-primary, #1B5E3B);
+  background: rgba(27, 94, 59, 0.08);
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  width: fit-content;
+}
+
+.product-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-primary, #1A1A0E);
+  line-height: 1.3;
+  margin: 0 0 16px 0;
+}
+
+/* -------------------------------------------------------------------------
+   Star Rating
+   ------------------------------------------------------------------------- */
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.product-rating__stars {
+  display: flex;
+  gap: 2px;
+}
+
+.star {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.star--full {
+  color: #D4A017;
+}
+
+.star--half {
+  color: #D4A017;
+  opacity: 0.65;
+}
+
+.star--empty {
+  color: #D4D0C0;
+}
+
+.product-rating__text {
+  font-size: 14px;
+  color: var(--color-text-secondary, #4A4A3A);
+  font-weight: 500;
+}
+
+/* -------------------------------------------------------------------------
+   Benefits Grid
+   ------------------------------------------------------------------------- */
+.product-benefits {
+  margin-bottom: 24px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+
+.benefit-item {
+  font-size: 14px;
+  color: var(--color-text-secondary, #4A4A3A);
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.benefit-check {
+  color: var(--color-primary, #1B5E3B);
+  font-weight: 700;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* -------------------------------------------------------------------------
+   Quantity Dropdown
+   ------------------------------------------------------------------------- */
+.product-item__buy {
+  margin-bottom: 16px;
+}
+
+.quantity-select {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text-primary, #1A1A0E);
+  background-color: var(--color-surface-dark, #E4F0DC);
+  border: 2px solid #E8DED8;
+  border-radius: 10px;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234A4A3A' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 20px;
+  transition: all 0.2s ease;
+}
+
+.quantity-select:hover {
+  border-color: var(--color-primary, #1B5E3B);
+  background-color: #ffffff;
+}
+
+.quantity-select:focus {
+  border-color: var(--color-primary, #1B5E3B);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(27, 94, 59, 0.12);
+  outline: none;
+}
+
+/* -------------------------------------------------------------------------
+   Purchase Buttons & Subscription
+   ------------------------------------------------------------------------- */
+.type_product {
+  min-height: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* Base Purchase Button */
+.purchase-btn {
+  width: 100%;
+  padding: 16px 24px;
+  color: #FFFFFF;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+}
+
+.purchase-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transition: box-shadow 0.25s ease;
+}
+
+.purchase-btn:hover::after {
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+.purchase-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(27, 94, 59, 0.25);
+}
+
+.purchase-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(27, 94, 59, 0.15);
+}
+
+.purchase-btn__icon {
+  display: flex;
+  align-items: center;
+}
+
+.purchase-btn__icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.purchase-btn__icon svg path {
+  fill: none !important;
+}
+
+.purchase-btn__text {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.purchase-btn__price {
+  font-size: 16px;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+/* VIP Subscription Button - Gradient accent */
+.vip-subscription-btn {
+  background: linear-gradient(135deg, var(--color-primary-dark, #0A2E1C) 0%, var(--color-primary, #1B5E3B) 100%);
+  border: none;
+  box-shadow: 0 4px 14px rgba(27, 94, 59, 0.3);
+}
+
+.vip-subscription-btn:hover {
+  background: linear-gradient(135deg, #4A0F18 0%, #0A2E1C 100%);
+  box-shadow: 0 6px 24px rgba(27, 94, 59, 0.4);
+}
+
+/* One Time Purchase Button - Solid accent */
+.one-time-purchase-btn {
+  background: var(--color-accent, #8BC34A);
+  border: 2px solid var(--color-accent, #8BC34A);
+}
+
+.one-time-purchase-btn:hover {
+  background: var(--color-accent-dark, #4F8A2F);
+  border-color: var(--color-accent-dark, #4F8A2F);
+}
+
+/* Active state for selected button */
+.purchase-btn.active {
+  box-shadow: 0 0 0 3px rgba(27, 94, 59, 0.3), 0 4px 14px rgba(27, 94, 59, 0.2);
+}
+
+/* Subscription Disclaimer */
+.subscription-disclaimer {
+  background: var(--color-surface-dark, #E4F0DC);
+  border-radius: 10px;
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-text-secondary, #4A4A3A);
+  border: 1px solid #E8DED8;
+}
+
+.subscription-disclaimer p {
+  margin: 0 0 6px 0;
+}
+
+.subscription-disclaimer p:last-child {
+  margin-bottom: 0;
+}
+
+.subscription-disclaimer strong {
+  font-weight: 700;
+  color: var(--color-text-primary, #1A1A0E);
+}
+
+.subscription-disclaimer .disclaimer-link {
+  color: var(--color-primary, #1B5E3B);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.subscription-disclaimer .disclaimer-link:hover {
+  color: var(--color-primary-dark, #0A2E1C);
+}
+
+/* Payment cards in product area */
+.product-payment-cards {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 0;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.product-payment-cards:hover {
+  opacity: 0.9;
+}
+
+.product-payment-cards img {
+  height: 18px;
+  width: auto;
+}
+
+/* -------------------------------------------------------------------------
+   Accordion
+   ------------------------------------------------------------------------- */
+.product-accordion {
+  margin-top: 28px;
+  border-top: 1px solid #E8DED8;
+}
+
+.accordion-item {
+  border-bottom: 1px solid #E8DED8;
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--color-text-primary, #1A1A0E);
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.accordion-header:hover {
+  color: var(--color-primary, #1B5E3B);
+}
+
+.accordion-icon {
+  font-size: 12px;
+  color: var(--color-text-tertiary, #7A7A6A);
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  padding: 0;
+}
+
+.accordion-item.active .accordion-body {
+  max-height: 800px;
+  padding: 0 0 20px 0;
+}
+
+.accordion-body p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-secondary, #4A4A3A);
+  margin: 0 0 12px 0;
+}
+
+.accordion-body p:last-child {
+  margin-bottom: 0;
+}
+
+.accordion-body a {
+  color: var(--color-primary, #1B5E3B);
+  text-decoration: none;
+}
+
+.accordion-body a:hover {
+  text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------------
+   Supplement Facts Table
+   ------------------------------------------------------------------------- */
+.supplement-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 13px;
+}
+
+.supplement-table th {
+  text-align: left;
+  padding: 8px 12px;
+  background: var(--color-surface-dark, #E4F0DC);
+  color: var(--color-text-primary, #1A1A0E);
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-primary, #1B5E3B);
+}
+
+.supplement-table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #E8DED8;
+  color: var(--color-text-secondary, #4A4A3A);
+}
+
+.supplement-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* -------------------------------------------------------------------------
+   FAQ Section
+   ------------------------------------------------------------------------- */
+.product-faq {
+  margin-top: 36px;
+}
+
+.product-faq__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text-primary, #1A1A0E);
+  margin: 0 0 8px 0;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #E8DED8;
+}
+
+.product-faq .accordion-body strong {
+  color: var(--color-primary, #1B5E3B);
+}
+
+/* -------------------------------------------------------------------------
+   Product Description
+   ------------------------------------------------------------------------- */
+.product-description {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid #E8DED8;
+}
+
+.product-description p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-secondary, #4A4A3A);
+}
+
+/* -------------------------------------------------------------------------
+   Error State
+   ------------------------------------------------------------------------- */
+.product-error {
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.product-error p {
+  font-size: 16px;
+  color: var(--color-text-secondary, #4A4A3A);
+  margin-bottom: 24px;
+}
+
+.product-error a {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--color-primary, #1B5E3B);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.product-error a:hover {
+  background: var(--color-primary-dark, #0A2E1C);
+}
+
+/* -------------------------------------------------------------------------
+   Responsive: Tablet & Mobile
+   ------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .product-detail__layout {
+    gap: 32px;
+  }
+
+  .product-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-detail__layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .product-detail__image {
+    position: static;
+  }
+
+  .product-gallery__main {
+    padding: 24px;
+    aspect-ratio: auto;
+  }
+
+  .product-gallery__main img {
+    max-height: 360px;
+  }
+
+  .gallery-thumb {
+    width: 64px;
+    height: 64px;
+  }
+
+  .product-detail {
+    padding: 24px 0 40px;
+  }
+
+  .product-title {
+    font-size: 22px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .quantity-select {
+    font-size: 13px;
+    padding: 12px 14px;
+  }
+
+  .purchase-btn {
+    font-size: 15px;
+    padding: 14px 20px;
+  }
+
+  .purchase-btn__text,
+  .purchase-btn__price {
+    font-size: 15px;
+  }
+
+  .subscription-disclaimer {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-gallery__main {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .product-gallery__main img {
+    max-height: 280px;
+  }
+
+  .gallery-thumb {
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+  }
+
+  .quantity-select {
+    font-size: 12px;
+    padding: 11px 12px;
+  }
+
+  .purchase-btn {
+    font-size: 13px;
+    padding: 12px 14px;
+    border-radius: 8px;
+  }
+
+  .purchase-btn__text,
+  .purchase-btn__price {
+    font-size: 13px;
+  }
+
+  .subscription-disclaimer {
+    font-size: 11px;
+    padding: 10px 12px;
+  }
+
+  .product-payment-cards img {
+    height: 16px;
+  }
+}

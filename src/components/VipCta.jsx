@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function VipCta() {
   return (
     <section className="vip-cta-section animate-section">
@@ -12,9 +14,9 @@ export default function VipCta() {
             and personalized wellness recommendations.
           </p>
         </div>
-        <a href="/vip/" className="btn-primary get_page animate-item" data-page="vip">
+        <Link to="/vip" className="btn-primary get_page animate-item" data-page="vip">
           Become a VIP Member
-        </a>
+        </Link>
       </div>
     </section>
   )

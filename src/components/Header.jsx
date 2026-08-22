@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 export default function AnnouncementBar({ countdown }) {
   return (
@@ -55,15 +55,22 @@ export function Subheader() {
 
 const NAV_LINKS = [
   { to: '/', label: 'Home', page: 'index', end: true },
-  { to: '/shop/', label: 'Shop', page: 'shop' },
-  { to: '/vip/', label: 'VIP', page: 'vip' },
-  { to: '/contacts/', label: 'Contacts', page: 'contacts' },
-  { to: '/privacy-policy/', label: 'Privacy Policy', page: 'privacy-policy' },
-  { to: '/terms/', label: 'Terms', page: 'terms' },
-  { to: '/cancellation-request/', label: 'Easy Cancel', page: 'cancellation-request' },
+  { to: '/shop', label: 'Shop', page: 'shop' },
+  { to: '/vip', label: 'VIP', page: 'vip' },
+  { to: '/contacts', label: 'Contacts', page: 'contacts' },
+  { to: '/privacy-policy', label: 'Privacy Policy', page: 'privacy-policy' },
+  { to: '/terms', label: 'Terms', page: 'terms' },
+  { to: '/cancellation-request', label: 'Easy Cancel', page: 'cancellation-request' },
 ]
 
+function navClass(pathname, link) {
+  const active =
+    link.end ? pathname === '/' : pathname === link.to || pathname.startsWith(`${link.to}/`)
+  return `nav-link get_page${active ? ' active' : ''}`
+}
+
 export function Header({ menuOpen, setMenuOpen, cartCount = 0 }) {
+  const location = useLocation()
   useEffect(() => {
     if (!menuOpen) return undefined
 
@@ -108,38 +115,26 @@ export function Header({ menuOpen, setMenuOpen, cartCount = 0 }) {
             >
               ×
             </button>
-            {NAV_LINKS.map((link) =>
-              link.to === '/' ? (
-                <Link
-                  key={link.page}
-                  to="/"
-                  className="nav-link get_page active"
-                  data-page="index"
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.page}
-                  href={link.to}
-                  className="nav-link get_page"
-                  data-page={link.page}
-                  onClick={closeMenu}
-                >
-                  {link.label}
-                </a>
-              )
-            )}
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.page}
+                to={link.to}
+                className={navClass(location.pathname, link)}
+                data-page={link.page}
+                onClick={closeMenu}
+              >
+                {link.label}
+              </Link>
+            ))}
           </nav>
-          <a href="/checkout/" className="header-cart get_page" data-page="cart" aria-label="Cart">
+          <Link to="/checkout" className="header-cart get_page" data-page="cart" aria-label="Cart">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="9" cy="21" r="1" />
               <circle cx="20" cy="21" r="1" />
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
             </svg>
             <span className="header-cart__quantity cart_count">{cartCount}</span>
-          </a>
+          </Link>
         </div>
       </div>
       {menuOpen ? (
