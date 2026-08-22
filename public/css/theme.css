@@ -1,0 +1,139 @@
+/* Tokyos Health Color Palette — Warm & Vibrant */
+:root {
+  /* Primary Brand Colors */
+  --color-primary: #9B2335;
+  --color-primary-light: #C94C5A;
+  --color-primary-dark: #6B1724;
+
+  /* Secondary Accent Colors */
+  --color-accent: #D4748A;
+  --color-accent-light: #F0B8C8;
+  --color-accent-dark: #B05068;
+
+  /* Neutral Colors */
+  --color-background: #FFFAF7;
+  --color-surface: #FFFAF7;
+  --color-surface-dark: #F5EDE8;
+
+  /* Text Colors */
+  --color-text-primary: #1A1A0E;
+  --color-text-secondary: #4A4A3A;
+  --color-text-tertiary: #7A7A6A;
+  --color-text: #1A1A0E;
+
+
+  /* Accent Colors for UI Elements */
+  --color-success: #2D7D46;
+  --color-info: #9B2335;
+  --color-warning: #B7791F;
+  --color-error: #C53030;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #9B2335 0%, #C94C5A 100%);
+  --gradient-accent: linear-gradient(135deg, #D4748A 0%, #F0B8C8 100%);
+  --gradient-subtle: linear-gradient(180deg, #FFFAF7 0%, #F5EDE8 100%);
+
+  /* Neutrals */
+  --color-white: #ffffff;
+  --color-gray: #7A7A6A;
+  --color-light-gray: #A4A090;
+
+
+  /* Teal aliases (used by checkout, cart, product CSS) */
+  --color-teal: #9B2335;
+  --color-teal-light: #C94C5A;
+  --color-teal-dark: #6B1724;
+
+  /* Legacy compatibility */
+  --color1: #9B2335;
+  --color2: #C94C5A;
+  --color3: #D4748A;
+  --color4: #1A1A0E;
+  --varHover: #6B1724;
+  --color-secondary: #D4748A;
+  --color-action: #D4748A;
+}
+
+/* Subheader bar - forest green background with white text */
+.subheader-soc {
+  background: var(--color-primary) !important;
+}
+.subheader-soc_cont a,
+.subheader-soc_phone,
+.subheader-soc_cont {
+  color: #ffffff !important;
+}
+.subheader-soc_cont a:hover {
+  opacity: 0.7;
+}
+
+/* Footer - forest green background with white text/icons */
+footer {
+  background: var(--color-primary) !important;
+  color: #ffffff !important;
+}
+
+footer .footer-topbar__title {
+  color: #ffffff !important;
+}
+
+footer .footer-topbar__info-box {
+  color: #ffffff !important;
+}
+
+footer .footer-topbar__info-box svg path {
+  fill: #ffffff !important;
+}
+
+footer .ft-form__text {
+  color: #ffffff !important;
+}
+
+footer .ft-form__input {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+footer .ft-form__input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+footer .ft-form__button {
+  background: var(--color-accent-light) !important;
+  color: var(--color-primary) !important;
+}
+
+footer .ft-form__button:hover {
+  background: #F0B8C8 !important;
+  color: var(--color-primary) !important;
+}
+
+footer .footer-navigation a {
+  color: #ffffff !important;
+}
+
+footer .footer-navigation a:hover {
+  color: var(--color-accent-light) !important;
+}
+
+footer .footer-lowbar {
+  border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+footer .copyright {
+  color: #ffffff !important;
+}
+
+footer .footer-cards img {
+  opacity: 1 !important;
+}
+
+footer .footer_phone,
+footer .phone__line {
+  color: #ffffff !important;
+}
+
+footer .phone__line:after {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
