@@ -62,7 +62,7 @@
         border-color: var(--color-accent-dark);
         color: #ffffff;
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(155, 35, 53, 0.3);
+        box-shadow: 0 8px 24px rgba(27, 94, 59, 0.3);
       }
       .hero-btn-outline {
         display: inline-block;
@@ -126,7 +126,7 @@
       }
       .featured-product-info .product-category-badge {
         display: inline-block;
-        background: rgba(155, 35, 53, 0.1);
+        background: rgba(27, 94, 59, 0.1);
         color: var(--color-primary);
         font-size: 12px;
         font-weight: 600;
@@ -198,7 +198,7 @@
         background: var(--color-primary-dark);
         color: #ffffff;
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(155, 35, 53, 0.25);
+        box-shadow: 0 8px 24px rgba(27, 94, 59, 0.25);
       }
 
       /* VIP CTA */

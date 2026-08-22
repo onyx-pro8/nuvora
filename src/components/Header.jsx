@@ -12,7 +12,7 @@ export default function AnnouncementBar({ countdown }) {
               <circle cx="12" cy="10" r="3" />
             </svg>
           </span>
-          <span>Free Shipping on Orders Over $75</span>
+          <span>Organic Beet Root — Now $18.30 (was $49.97)</span>
           <span className="announcement-bar__timer announcement-countdown">
             <span className="countdown-hours">{countdown.hours}</span>:
             <span className="countdown-minutes">{countdown.minutes}</span>:
@@ -32,11 +32,10 @@ export function Subheader() {
           <div className="subheader-soc_phone">
             <div className="subheader-soc_itm">
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: 6 }}>
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
               </svg>
-              <a href="tel:+18775372188" className="phone__line">
-                +1 (877) 537-2188
-              </a>
+              <span className="phone__line">Alecky Complete LLC · Grimes, IA</span>
             </div>
           </div>
           <div className="subheader-soc_itm">
@@ -44,8 +43,8 @@ export function Subheader() {
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
             </svg>
-            <a href="mailto:support@tokyoshealth.com" className="email__line">
-              support@tokyoshealth.com
+            <a href="mailto:aleckycomplete@gmail.com" className="email__line">
+              aleckycomplete@gmail.com
             </a>
           </div>
         </div>
@@ -95,7 +94,7 @@ export function Header({ menuOpen, setMenuOpen, cartCount = 0 }) {
             <span />
           </button>
           <Link to="/" className="header-logo get_page" data-page="index" onClick={closeMenu}>
-            <img src="/images/tokyoshealth-logo.png" alt="Tokyos Health" />
+            <img src="/images/nuvora-logo.png" alt="NUVORA — Better Nutrition. Every Day." />
           </Link>
           <nav
             id="site-navigation"

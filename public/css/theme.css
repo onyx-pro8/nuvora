@@ -1,19 +1,19 @@
 /* Tokyos Health Color Palette — Warm & Vibrant */
 :root {
   /* Primary Brand Colors */
-  --color-primary: #9B2335;
-  --color-primary-light: #C94C5A;
-  --color-primary-dark: #6B1724;
+  --color-primary: #1B5E3B;
+  --color-primary-light: #3D9A55;
+  --color-primary-dark: #0A2E1C;
 
   /* Secondary Accent Colors */
-  --color-accent: #D4748A;
-  --color-accent-light: #F0B8C8;
-  --color-accent-dark: #B05068;
+  --color-accent: #8BC34A;
+  --color-accent-light: #D4F0A8;
+  --color-accent-dark: #4F8A2F;
 
   /* Neutral Colors */
-  --color-background: #FFFAF7;
-  --color-surface: #FFFAF7;
-  --color-surface-dark: #F5EDE8;
+  --color-background: #F5FAF3;
+  --color-surface: #F5FAF3;
+  --color-surface-dark: #E4F0DC;
 
   /* Text Colors */
   --color-text-primary: #1A1A0E;
@@ -24,14 +24,14 @@
 
   /* Accent Colors for UI Elements */
   --color-success: #2D7D46;
-  --color-info: #9B2335;
+  --color-info: #1B5E3B;
   --color-warning: #B7791F;
   --color-error: #C53030;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #9B2335 0%, #C94C5A 100%);
-  --gradient-accent: linear-gradient(135deg, #D4748A 0%, #F0B8C8 100%);
-  --gradient-subtle: linear-gradient(180deg, #FFFAF7 0%, #F5EDE8 100%);
+  --gradient-primary: linear-gradient(135deg, #1B5E3B 0%, #3D9A55 100%);
+  --gradient-accent: linear-gradient(135deg, #8BC34A 0%, #D4F0A8 100%);
+  --gradient-subtle: linear-gradient(180deg, #F5FAF3 0%, #E4F0DC 100%);
 
   /* Neutrals */
   --color-white: #ffffff;
@@ -40,18 +40,18 @@
 
 
   /* Teal aliases (used by checkout, cart, product CSS) */
-  --color-teal: #9B2335;
-  --color-teal-light: #C94C5A;
-  --color-teal-dark: #6B1724;
+  --color-teal: #1B5E3B;
+  --color-teal-light: #3D9A55;
+  --color-teal-dark: #0A2E1C;
 
   /* Legacy compatibility */
-  --color1: #9B2335;
-  --color2: #C94C5A;
-  --color3: #D4748A;
+  --color1: #1B5E3B;
+  --color2: #3D9A55;
+  --color3: #8BC34A;
   --color4: #1A1A0E;
-  --varHover: #6B1724;
-  --color-secondary: #D4748A;
-  --color-action: #D4748A;
+  --varHover: #0A2E1C;
+  --color-secondary: #8BC34A;
+  --color-action: #8BC34A;
 }
 
 /* Subheader bar - forest green background with white text */
@@ -105,7 +105,7 @@ footer .ft-form__button {
 }
 
 footer .ft-form__button:hover {
-  background: #F0B8C8 !important;
+  background: #D4F0A8 !important;
   color: var(--color-primary) !important;
 }
 

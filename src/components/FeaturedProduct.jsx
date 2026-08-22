@@ -1,3 +1,5 @@
+import { PRODUCT } from '../data/site'
+
 const CheckIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
     <polyline points="20 6 9 17 4 12" />
@@ -10,45 +12,47 @@ export default function FeaturedProduct() {
       <div className="container">
         <div className="featured-product-grid">
           <div className="featured-product-image animate-item">
-            <img src="/images/banner-prod.png" alt="Sleep Bloom - Sakura Calm Elixir" loading="lazy" />
+            <img
+              className="product-photo"
+              src={PRODUCT.image}
+              alt={PRODUCT.alt}
+              loading="lazy"
+            />
           </div>
           <div className="featured-product-info animate-item">
-            <span className="product-category-badge">Sleep Support</span>
-            <h2>Sleep Bloom</h2>
-            <p className="product-short-desc">
-              A doctor-formulated blend of calming botanicals designed to ease your mind, promote
-              deep restful sleep, and support overnight recovery — delivered in easy-to-use liquid
-              drops for maximum absorption.
-            </p>
+            <span className="product-category-badge">{PRODUCT.badge}</span>
+            <h2>{PRODUCT.name}</h2>
+            <p className="product-brand">{PRODUCT.brand}</p>
+            <div className="product-rating">
+              <span className="product-rating__stars" aria-label={`${PRODUCT.rating} out of 5 stars`}>
+                ★★★★☆
+              </span>
+              <strong>{PRODUCT.rating}/5</strong>
+              <span>{PRODUCT.reviews} reviews</span>
+              <span>{PRODUCT.sold} sold</span>
+            </div>
+            <p className="product-short-desc">{PRODUCT.description}</p>
             <ul className="featured-benefits-list">
-              <li>
-                <CheckIcon />
-                Encourages calmness and relaxation naturally
-              </li>
-              <li>
-                <CheckIcon />
-                Promotes deep, restful sleep
-              </li>
-              <li>
-                <CheckIcon />
-                Antioxidant-rich botanical blend
-              </li>
-              <li>
-                <CheckIcon />
-                Liquid drops for fast, superior absorption
-              </li>
+              {PRODUCT.benefits.map((item) => (
+                <li key={item}>
+                  <CheckIcon />
+                  {item}
+                </li>
+              ))}
             </ul>
             <div className="featured-product-price">
-              $39.99 <span>/ bottle</span>
+              ${PRODUCT.price} <span>/ bottle</span>
+              <s>${PRODUCT.compareAtPrice}</s>
             </div>
             <a
-              href="/product/?sku=sleep-bloom"
+              href={`/product/?sku=${PRODUCT.sku}`}
               className="btn-primary get_page"
               data-page="product"
-              data-order-type="sleep-bloom"
+              data-order-type={PRODUCT.sku}
             >
               Shop Now
             </a>
+            <p className="product-seller">Seller: {PRODUCT.seller}</p>
           </div>
         </div>
       </div>

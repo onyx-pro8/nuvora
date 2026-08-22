@@ -1,3 +1,5 @@
+import { PRODUCT } from '../data/site'
+
 export default function Hero() {
   return (
     <section className="home-hero">
@@ -20,31 +22,31 @@ export default function Hero() {
         <div className="container">
           <div className="home-flex">
             <div className="home-left">
-              <div className="hero-badge">Japanese-Inspired Wellness</div>
+              <div className="hero-badge">Better Nutrition. Every Day.</div>
               <h1 className="home-title title-with-highlight title-with-highlight--light">
-                The Art of <strong>Natural Health</strong>
+                Energy, Circulation &amp; <strong>Natural Health</strong>
               </h1>
               <p className="hero-description">
-                Tokyos Health brings you premium, science-backed supplements inspired by Japanese
-                wellness traditions. Encourage calmness, promote restful sleep, and restore your
-                natural balance.
+                NUVORA brings you extra-strength organic beet root — 2040 mg per serving to support
+                healthy blood flow, natural energy, and overall wellness. USDA Organic, non-GMO,
+                vegan, gluten-free, and made in the USA.
               </p>
               <div className="hero-cta-group">
                 <a href="/shop/" className="hero-btn-primary get_page" data-page="shop">
                   Shop Now
                 </a>
                 <a
-                  href="/product/?sku=sleep-bloom"
+                  href={`/product/?sku=${PRODUCT.sku}`}
                   className="hero-btn-outline get_page"
                   data-page="product"
-                  data-order-type="sleep-bloom"
+                  data-order-type={PRODUCT.sku}
                 >
                   Learn More
                 </a>
               </div>
             </div>
             <div className="home-right">
-              <img src="/images/banner-prod.png" alt="Sleep Bloom - Sakura Calm Elixir" />
+              <img className="product-photo" src={PRODUCT.image} alt={PRODUCT.alt} />
             </div>
           </div>
         </div>

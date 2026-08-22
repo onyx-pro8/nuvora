@@ -2,24 +2,24 @@ import { useState } from 'react'
 
 const FAQ_ITEMS = [
   {
-    q: 'How do I take Sleep Bloom drops?',
-    a: 'Take 1 full dropper (1 mL) under your tongue about 30 minutes before bedtime. Hold the liquid under your tongue for 30 seconds before swallowing for optimal absorption. You can also mix it with water or herbal tea if preferred.',
+    q: 'How do I take Organic Beet Root Capsules?',
+    a: 'Take capsules with water as directed on the bottle. This extra-strength formula provides 2040 mg per serving. Do not exceed the recommended serving unless advised by your healthcare provider.',
   },
   {
-    q: 'How long until I see results?',
-    a: 'Many customers notice improved relaxation and easier sleep onset within the first few nights. For the full benefits of deeper, more consistent sleep, we recommend using Sleep Bloom nightly for at least 2-4 weeks as the botanical ingredients build up in your system.',
+    q: 'What is this product made of?',
+    a: 'The listed ingredient is organic beet root. The formula is advertised as organic, non-GMO, vegan, natural, gluten-free, and made in the USA. It comes in convenient capsules from Toplux Nutrition.',
   },
   {
-    q: 'Are there any side effects?',
-    a: 'Sleep Bloom is made with all-natural, non-GMO ingredients and is generally well tolerated. It contains Melatonin, which may cause drowsiness — do not drive or operate heavy machinery after use. If you are pregnant, nursing, or taking sleep or anxiety medication, please consult your healthcare provider before use.',
+    q: 'What can beet root support?',
+    a: 'Organic Beet Root Capsules are advertised to support healthy blood flow and circulation, natural energy and endurance, cardiovascular wellness, and overall vitality. These statements have not been evaluated by the FDA.',
   },
   {
     q: 'What is your guarantee policy?',
-    a: 'We offer a 30-day satisfaction guarantee. If you are not completely satisfied with Sleep Bloom, contact our support team within 30 days of your purchase for a full refund. No questions asked — we stand behind our product.',
+    a: 'If you are not satisfied, contact Alecky Complete LLC at aleckycomplete@gmail.com within 30 days of purchase. We will help you with a return or refund according to our refund policy.',
   },
   {
-    q: 'Is Sleep Bloom vegan-friendly?',
-    a: 'Yes! Sleep Bloom is 100% plant-based and vegan-friendly. Our formula contains no animal-derived ingredients, artificial colors, or synthetic fillers. It is also gluten-free, dairy-free, soy-free, and non-GMO.',
+    q: 'Is this product vegan and gluten-free?',
+    a: 'Yes. It is advertised as vegan, gluten-free, non-GMO, organic, and natural. Always review the supplement facts panel if you have allergies or dietary restrictions.',
   },
 ]
 

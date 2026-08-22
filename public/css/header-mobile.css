@@ -29,13 +29,14 @@
 
   .header-logo {
     justify-self: center;
-    max-width: min(160px, 52vw);
+    max-width: min(200px, 58vw);
+    padding: 4px 8px;
   }
 
   .header-logo img {
-    width: 100%;
-    max-width: 160px;
-    height: auto;
+    width: auto;
+    max-width: 180px !important;
+    height: 36px;
   }
 
   .header-cart {

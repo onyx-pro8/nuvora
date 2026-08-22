@@ -5,7 +5,7 @@ export default function VipCta() {
         <div className="section-header">
           <span className="section-label">Exclusive Access</span>
           <h2 className="section-title title-with-highlight animate-item">
-            Join the VIP Club, <strong>Save Up to 50%</strong>
+            Join the VIP Club, <strong>Save Up to 63%</strong>
           </h2>
           <p className="section-subtitle animate-item">
             Unlock members-only pricing, early access to new products, free shipping on every order,

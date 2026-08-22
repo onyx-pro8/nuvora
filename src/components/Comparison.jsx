@@ -5,29 +5,25 @@ export default function Comparison() {
         <div className="section-header">
           <span className="section-label">Compare</span>
           <h2 className="section-title title-with-highlight">
-            Why Choose <strong>Tokyos Health</strong>?
+            Why Choose <strong>NUVORA</strong>?
           </h2>
-          <p className="section-subtitle">See how Sleep Bloom stacks up against common competitors.</p>
+          <p className="section-subtitle">
+            See how Organic Beet Root Capsules stack up against common competitors.
+          </p>
         </div>
         <div className="comparison-table-wrapper animate-item">
           <table className="comparison-table">
             <thead>
               <tr>
                 <th>Feature</th>
-                <th className="comparison-highlight">
-                  <img
-                    src="/images/tokyoshealth-logo.png"
-                    alt="Tokyos Health"
-                    className="comparison-logo"
-                  />
-                </th>
-                <th>Competitor A</th>
-                <th>Competitor B</th>
+                <th className="comparison-highlight">NUVORA</th>
+                <th>Brand X</th>
+                <th>Brand Y</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Natural Ingredients</td>
+                <td>USDA Organic</td>
                 <td className="comparison-highlight">
                   <span className="comparison-check">✓</span>
                 </td>
@@ -39,7 +35,7 @@ export default function Comparison() {
                 </td>
               </tr>
               <tr>
-                <td>Doctor Formulated</td>
+                <td>Non-GMO &amp; Vegan</td>
                 <td className="comparison-highlight">
                   <span className="comparison-check">✓</span>
                 </td>
@@ -51,7 +47,19 @@ export default function Comparison() {
                 </td>
               </tr>
               <tr>
-                <td>30-Day Guarantee</td>
+                <td>Gluten-Free</td>
+                <td className="comparison-highlight">
+                  <span className="comparison-check">✓</span>
+                </td>
+                <td>
+                  <span className="comparison-maybe">~</span>
+                </td>
+                <td>
+                  <span className="comparison-check">✓</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Made in the USA</td>
                 <td className="comparison-highlight">
                   <span className="comparison-check">✓</span>
                 </td>
@@ -59,23 +67,11 @@ export default function Comparison() {
                   <span className="comparison-x">✗</span>
                 </td>
                 <td>
-                  <span className="comparison-check">✓</span>
+                  <span className="comparison-maybe">~</span>
                 </td>
               </tr>
               <tr>
-                <td>Free Shipping Over $75</td>
-                <td className="comparison-highlight">
-                  <span className="comparison-check">✓</span>
-                </td>
-                <td>
-                  <span className="comparison-expensive">$9.99</span>
-                </td>
-                <td>
-                  <span className="comparison-expensive">$12.99</span>
-                </td>
-              </tr>
-              <tr>
-                <td>VIP Pricing</td>
+                <td>2040 mg Extra Strength</td>
                 <td className="comparison-highlight">
                   <span className="comparison-check">✓</span>
                 </td>
@@ -87,7 +83,7 @@ export default function Comparison() {
                 </td>
               </tr>
               <tr>
-                <td>Non-GMO</td>
+                <td>Capsule Form</td>
                 <td className="comparison-highlight">
                   <span className="comparison-check">✓</span>
                 </td>
