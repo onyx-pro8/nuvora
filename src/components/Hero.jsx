@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { BRAND, COMPANY, HERO_SPECS, PRODUCT } from '../data/site'
+import { BRAND, HERO_SPECS, PRODUCT } from '../data/site'
 
 export default function Hero() {
   return (
@@ -13,11 +13,6 @@ export default function Hero() {
         <span className="particle p6" />
         <span className="particle p7" />
         <span className="particle p8" />
-      </div>
-      <div className="hero-ocean">
-        <div className="hero-wave hero-wave--back" />
-        <div className="hero-wave hero-wave--mid" />
-        <div className="hero-wave hero-wave--front" />
       </div>
       <div className="shadow-bg__box">
         <div className="container">

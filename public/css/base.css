@@ -1043,7 +1043,7 @@ body.hidden {
   background-size: 300% 300%;
   animation: heroGradientMove 12s ease infinite;
   position: relative;
-  padding: 102px 0 140px;
+  padding: 102px 0 80px;
   overflow: hidden;
 }
 
