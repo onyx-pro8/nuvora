@@ -7,15 +7,15 @@ export default function VipCta() {
         <div className="section-header">
           <span className="section-label">Exclusive Access</span>
           <h2 className="section-title title-with-highlight animate-item">
-            Join the VIP Club, <strong>Save Up to 63%</strong>
+            Join the Members Club, <strong>Save on Every Bottle</strong>
           </h2>
           <p className="section-subtitle animate-item">
-            Unlock members-only pricing, early access to new products, free shipping on every order,
-            and personalized wellness recommendations.
+            Unlock member pricing, free shipping on eligible orders, and a simple 28-day restock. One-time purchases
+            remain available without a membership.
           </p>
         </div>
         <Link to="/vip" className="btn-primary get_page animate-item" data-page="vip">
-          Become a VIP Member
+          Become a Member
         </Link>
       </div>
     </section>

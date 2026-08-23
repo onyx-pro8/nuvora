@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { COMPANY } from '../data/site'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
@@ -35,11 +36,21 @@ export default function Footer() {
                 <circle cx="12" cy="10" r="3" />
               </svg>
               <p>
-                Alecky Complete LLC
+                {COMPANY.name}
                 <br />
-                1800 NW Gabus Dr
+                {COMPANY.addressLine1}
                 <br />
-                Grimes, IA 50111
+                {COMPANY.addressLine2}
+              </p>
+            </div>
+            <div className="footer-topbar__info-box">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              <p>
+                <a href={COMPANY.phoneHref} className="phone__line" style={{ color: '#cbd5e1' }}>
+                  {COMPANY.phone}
+                </a>
               </p>
             </div>
             <div className="footer-topbar__info-box">
@@ -48,12 +59,12 @@ export default function Footer() {
                 <polyline points="22,6 12,13 2,6" />
               </svg>
               <p>
-                <a href="mailto:aleckycomplete@gmail.com" style={{ color: '#cbd5e1' }}>
-                  aleckycomplete@gmail.com
+                <a href={`mailto:${COMPANY.email}`} style={{ color: '#cbd5e1' }}>
+                  {COMPANY.email}
                 </a>
               </p>
             </div>
-            <div className="footer-hours">Mon - Fri: 9 AM - 5 PM (CST)</div>
+            <div className="footer-hours">{COMPANY.hours}</div>
           </div>
           <div className="footer-topbar__form">
             <div className="footer-topbar__title">Newsletter</div>
@@ -94,10 +105,10 @@ export default function Footer() {
               Shop
             </Link>
             <Link to="/vip" className="get_page" data-page="vip">
-              VIP
+              Members
             </Link>
             <Link to="/contacts" className="get_page" data-page="contacts">
-              Contacts
+              Contact
             </Link>
             <Link to="/privacy-policy" className="get_page" data-page="privacy-policy">
               Privacy Policy
@@ -107,6 +118,9 @@ export default function Footer() {
             </Link>
             <Link to="/refund-policy" className="get_page" data-page="refund-policy">
               Refund Policy
+            </Link>
+            <Link to="/shipping-policy" className="get_page" data-page="shipping-policy">
+              Shipping Policy
             </Link>
           </div>
           <div className="footer-cards">

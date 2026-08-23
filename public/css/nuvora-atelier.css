@@ -1,0 +1,580 @@
+/* NUVORA cream catalog — does not change .home-hero colors or animation */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap');
+
+html.nuvora-atelier {
+  --paper: #f4efe6;
+  --paper-deep: #e8dfd0;
+  --cream: #fbf7f0;
+  --ink: #1c2416;
+  --moss: #1b5e3b;
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'Manrope', 'Segoe UI', sans-serif;
+}
+
+html.nuvora-atelier body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+html.nuvora-atelier h1,
+html.nuvora-atelier h2,
+html.nuvora-atelier h3,
+html.nuvora-atelier .section-header .section-title,
+html.nuvora-atelier .featured-product-info h2,
+html.nuvora-atelier .page-banner__title,
+html.nuvora-atelier .home-title,
+html.nuvora-atelier .vip-hero h1,
+html.nuvora-atelier .vip-section-title,
+html.nuvora-atelier .ap-item__name,
+html.nuvora-atelier .product-title,
+html.nuvora-atelier .result-number {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+
+html.nuvora-atelier .checkout-form .section-title {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+html.nuvora-atelier .section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+html.nuvora-atelier .section-header .section-title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.15;
+  color: var(--moss);
+}
+
+html.nuvora-atelier .section-header .section-title strong {
+  font-weight: 600;
+  font-style: italic;
+}
+
+html.nuvora-atelier .section-label {
+  color: var(--moss);
+  letter-spacing: 0.22em;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+html.nuvora-atelier .section-subtitle {
+  max-width: 38rem;
+  color: var(--color-text-secondary);
+}
+
+/* Header / announcement */
+html.nuvora-atelier .announcement-bar {
+  background: var(--cream);
+  color: var(--moss);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid rgba(27, 94, 59, 0.12);
+}
+
+html.nuvora-atelier .header-section {
+  background: var(--cream);
+  box-shadow: none;
+  border-bottom: 1px solid rgba(27, 94, 59, 0.1);
+}
+
+html.nuvora-atelier .header-navigations a {
+  font-family: var(--font-body);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+}
+
+html.nuvora-atelier .header-navigations a:hover,
+html.nuvora-atelier .header-navigations a.active {
+  color: var(--moss);
+}
+
+html.nuvora-atelier .header-navigations a::after {
+  background: var(--moss);
+  height: 1px;
+}
+
+html.nuvora-atelier .btn-primary,
+html.nuvora-atelier .btn-outline-primary,
+html.nuvora-atelier .newsletter-form button,
+html.nuvora-atelier .ft-form__button {
+  border-radius: 999px;
+  font-family: var(--font-body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+html.nuvora-atelier .btn-outline-primary {
+  font-family: var(--font-body);
+}
+
+/* Trust seals — static, not a ticker */
+html.nuvora-atelier .seal-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 28px;
+  padding: 36px 20px;
+  background: var(--cream);
+  border-top: 1px solid rgba(27, 94, 59, 0.08);
+  border-bottom: 1px solid rgba(27, 94, 59, 0.08);
+}
+
+html.nuvora-atelier .seal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 92px;
+  color: var(--moss);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+html.nuvora-atelier .seal__mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(27, 94, 59, 0.28);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 4px var(--cream), inset 0 0 0 5px rgba(27, 94, 59, 0.18);
+}
+
+html.nuvora-atelier .seal__mark svg {
+  display: block;
+  color: var(--moss);
+}
+
+/* Featured product */
+html.nuvora-atelier .featured-product-section,
+html.nuvora-atelier .detail-section,
+html.nuvora-atelier .faq-section {
+  background: var(--paper);
+}
+
+html.nuvora-atelier .featured-product-image {
+  background: radial-gradient(circle at 50% 58%, #dce8d0 0%, var(--paper-deep) 62%, transparent 63%);
+  border-radius: 0;
+  padding: 48px 24px;
+}
+
+html.nuvora-atelier .featured-product-info h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  color: var(--moss);
+}
+
+html.nuvora-atelier .featured-product-price {
+  font-family: var(--font-display);
+}
+
+html.nuvora-atelier .product-category-badge {
+  background: transparent;
+  border: 1px solid rgba(27, 94, 59, 0.25);
+  border-radius: 999px;
+}
+
+/* How it works — connected numerals, not boxed cards */
+html.nuvora-atelier .how-grid {
+  display: flex;
+  max-width: 920px;
+  margin: 0 auto;
+  gap: 0;
+}
+
+html.nuvora-atelier .how-step {
+  position: relative;
+  flex: 1;
+  padding: 0 18px;
+}
+
+html.nuvora-atelier .how-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 1.35rem;
+  left: calc(50% + 28px);
+  width: calc(100% - 36px);
+  height: 1px;
+  background: #cbbba3;
+}
+
+html.nuvora-atelier .how-number {
+  width: auto;
+  height: auto;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--moss);
+}
+
+html.nuvora-atelier .how-step h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+}
+
+/* Formula chips */
+html.nuvora-atelier .formula-badge {
+  background: transparent;
+  border: 1px solid rgba(27, 94, 59, 0.28);
+  color: var(--moss);
+  border-radius: 999px;
+}
+
+/* Benefits / audience / credentials */
+html.nuvora-atelier .benefits-content-section,
+html.nuvora-atelier .comparison-section,
+html.nuvora-atelier .newsletter-section,
+html.nuvora-atelier .vip-cta-section,
+html.nuvora-atelier .detail-section--surface {
+  background: var(--paper-deep);
+}
+
+html.nuvora-atelier .benefits-content-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 20px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+html.nuvora-atelier .benefit-content-card {
+  background: var(--cream);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: none;
+  text-align: left;
+  padding: 28px 26px;
+}
+
+html.nuvora-atelier .benefit-content-card:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+html.nuvora-atelier .benefit-content-icon {
+  margin: 0 0 16px;
+  background: rgba(27, 94, 59, 0.08);
+}
+
+html.nuvora-atelier .benefit-content-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+}
+
+/* Science */
+html.nuvora-atelier .science-strip__copy {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--ink);
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Results — warm panel, not a dark clone band */
+html.nuvora-atelier .results-section {
+  background: #d9e4cf;
+  color: var(--ink);
+  padding: 88px 0;
+}
+
+html.nuvora-atelier .results-section .section-label,
+html.nuvora-atelier .results-section .section-title,
+html.nuvora-atelier .results-section .section-subtitle {
+  color: var(--moss);
+}
+
+html.nuvora-atelier .result-card {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 12px;
+  backdrop-filter: none;
+}
+
+html.nuvora-atelier .result-card:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+html.nuvora-atelier .result-number {
+  color: var(--moss);
+  font-size: clamp(3.2rem, 6vw, 4.6rem);
+  font-weight: 600;
+}
+
+html.nuvora-atelier .result-label {
+  color: var(--ink);
+  letter-spacing: 0.16em;
+}
+
+html.nuvora-atelier .result-desc,
+html.nuvora-atelier .results-footnote {
+  color: var(--color-text-secondary);
+}
+
+/* Reviews */
+html.nuvora-atelier .review-card {
+  background: var(--cream);
+  border: 0;
+  border-radius: 8px;
+  position: relative;
+  padding-top: 36px;
+}
+
+html.nuvora-atelier .review-card::before {
+  content: '“';
+  position: absolute;
+  top: 8px;
+  left: 20px;
+  font-family: var(--font-display);
+  font-size: 42px;
+  line-height: 1;
+  color: rgba(27, 94, 59, 0.28);
+}
+
+html.nuvora-atelier .review-card p {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+/* Compare cards */
+html.nuvora-atelier .formula-standard-card {
+  background: var(--cream);
+  border: 0;
+  border-top: 2px solid var(--moss);
+  border-radius: 0;
+  padding: 28px 8px 8px;
+}
+
+html.nuvora-atelier .formula-standard-card h3 {
+  font-family: var(--font-display);
+}
+
+html.nuvora-atelier .guarantee-section a,
+html.nuvora-atelier .detail-section--cta a:not(.btn-primary) {
+  color: var(--moss);
+}
+
+/* FAQ */
+html.nuvora-atelier .faq-question {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+html.nuvora-atelier .faq-item.active .faq-question svg {
+  transform: rotate(180deg);
+}
+
+html.nuvora-atelier .faq-question svg {
+  transition: transform 0.25s ease;
+}
+
+/* Inner page banners — catalog, not a second green hero */
+html.nuvora-atelier .all-product .hero-section,
+html.nuvora-atelier .hero-section.catalog-banner {
+  background: var(--paper) !important;
+  padding: 56px 0 40px;
+  text-align: center;
+}
+
+html.nuvora-atelier .all-product .hero-section .page-banner__title,
+html.nuvora-atelier .catalog-banner .page-banner__title {
+  color: var(--moss);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+html.nuvora-atelier .all-product .hero-section .page-banner__lede,
+html.nuvora-atelier .all-product .hero-section .hero-description,
+html.nuvora-atelier .catalog-banner .hero-description {
+  color: var(--color-text-secondary);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html.nuvora-atelier .all-product .hero-section .hero-badge,
+html.nuvora-atelier .catalog-banner .hero-badge {
+  background: transparent;
+  color: var(--moss);
+  border: 1px solid rgba(27, 94, 59, 0.28);
+}
+
+/* Shop cards */
+html.nuvora-atelier .all-product .ap-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  justify-content: center;
+}
+
+html.nuvora-atelier .all-product .ap-item {
+  width: auto;
+  max-width: none;
+  background: var(--cream);
+  border-radius: 8px;
+  padding: 18px 18px 28px;
+  box-shadow: none;
+}
+
+html.nuvora-atelier .all-product .ap-item:hover {
+  background: var(--cream);
+  box-shadow: 0 10px 28px rgba(28, 36, 22, 0.08);
+}
+
+html.nuvora-atelier .all-product .ap-item__img {
+  background: var(--paper-deep);
+  border-radius: 0;
+}
+
+html.nuvora-atelier .all-product .ap-item__name {
+  text-transform: none;
+  font-size: 1.2rem;
+  padding-top: 16px;
+}
+
+html.nuvora-atelier .shop-item-cta {
+  border-radius: 999px;
+  margin-top: 16px;
+}
+
+/* Product / contact / legal surfaces */
+html.nuvora-atelier .product-spec-bar span,
+html.nuvora-atelier .product-merchant,
+html.nuvora-atelier .contact-card,
+html.nuvora-atelier .legal-aside,
+html.nuvora-atelier .cancel-panel {
+  background: var(--cream);
+  border-color: rgba(27, 94, 59, 0.12);
+  border-radius: 8px;
+}
+
+html.nuvora-atelier .product-bundle {
+  border-radius: 8px;
+}
+
+/* Members page */
+html.nuvora-atelier .vip-hero {
+  background: var(--paper);
+  text-align: center;
+}
+
+html.nuvora-atelier .vip-hero::before,
+html.nuvora-atelier .vip-hero::after {
+  display: none;
+}
+
+html.nuvora-atelier .vip-hero h1,
+html.nuvora-atelier .vip-hero p,
+html.nuvora-atelier .vip-section-title,
+html.nuvora-atelier .vip-section-subtitle {
+  color: var(--ink);
+}
+
+html.nuvora-atelier .vip-hero h1 {
+  color: var(--moss);
+}
+
+html.nuvora-atelier .vip-hero h1 span {
+  font-style: italic;
+  color: var(--moss);
+}
+
+html.nuvora-atelier .vip-badge {
+  background: transparent;
+  color: var(--moss);
+  border: 1px solid rgba(27, 94, 59, 0.3);
+}
+
+html.nuvora-atelier .vip-btn-white {
+  background: var(--moss);
+  color: #fff;
+  border-radius: 999px;
+  border-color: var(--moss);
+}
+
+html.nuvora-atelier .vip-btn-white:hover {
+  background: #0a2e1c;
+  color: #fff;
+  border-color: #0a2e1c;
+}
+
+html.nuvora-atelier .vip-trust-bar,
+html.nuvora-atelier .vip-trust-item {
+  color: var(--color-text-secondary);
+}
+
+html.nuvora-atelier .vip-how-number {
+  border: 0;
+  background: transparent;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--moss);
+}
+
+html.nuvora-atelier .vip-how-step h3,
+html.nuvora-atelier .product-title {
+  font-family: var(--font-display);
+}
+
+html.nuvora-atelier .vip-how-it-works,
+html.nuvora-atelier .vip-benefits {
+  background: var(--paper);
+}
+
+html.nuvora-atelier .product-breadcrumb {
+  background: var(--paper);
+}
+
+html.nuvora-atelier .product-gallery__main {
+  background: var(--paper-deep);
+  border-radius: 8px;
+}
+
+html.nuvora-atelier footer .footer-topbar__title {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) {
+  html.nuvora-atelier .how-grid,
+  html.nuvora-atelier .benefits-content-grid,
+  html.nuvora-atelier .review-grid,
+  html.nuvora-atelier .results-grid,
+  html.nuvora-atelier .formula-standard-grid {
+    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  html.nuvora-atelier .how-step:not(:last-child)::after {
+    display: none;
+  }
+
+  html.nuvora-atelier .all-product .ap-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  html.nuvora-atelier .all-product .ap-content {
+    grid-template-columns: 1fr;
+  }
+}

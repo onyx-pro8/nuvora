@@ -35,6 +35,18 @@
   padding-bottom: 50px;
 }
 
+.product-item__buy {
+  position: relative;
+}
+
+.product-item__buy-quantity {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+}
+
 @media screen and (max-width: 768px) {
   .all-product .ap-item {
     width: 50%;

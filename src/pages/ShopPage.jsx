@@ -1,25 +1,23 @@
 import { Link } from 'react-router-dom'
 import SiteLayout from '../components/SiteLayout'
+import PageBanner from '../components/PageBanner'
 import ShippingSection from '../components/ShippingSection'
-import { BRAND, PRODUCTS } from '../data/site'
+import { BRAND, COMPANY, PRODUCTS } from '../data/site'
 
 export default function ShopPage() {
   return (
     <SiteLayout pageStyles={['shop']}>
       <main className="all-product">
-        <section className="hero-section">
-          <div className="container">
-            <h1 className="ap-title">All Products</h1>
-            <h3 className="ap-description">{BRAND.tagline.toUpperCase()}</h3>
-          </div>
-        </section>
+        <PageBanner kicker={BRAND.tagline} title="Shop Organic Beet Root">
+          Extra-strength 2040 mg capsules from Toplux Nutrition. Sold and supported by {COMPANY.name} in Grimes, Iowa.
+        </PageBanner>
 
         <div className="breadcrumbs">
           <div className="container">
             <Link to="/" className="get_page" data-page="index">
               Home
             </Link>{' '}
-            / <span>All Products</span>
+            / <span>Shop</span>
           </div>
         </div>
 
@@ -38,7 +36,16 @@ export default function ShopPage() {
                       <img src={product.gallery[0]} alt={product.alt} loading="lazy" decoding="async" />
                     </div>
                     <div className="ap-item__name">{product.name}</div>
-                    <div className="ap-item__price">${product.price}</div>
+                    <div className="shop-item-brand">
+                      {product.brand} · {product.count}
+                    </div>
+                    <div className="shop-item-meta">
+                      {product.rating}/5 · {product.reviews} reviews
+                    </div>
+                    <div className="ap-item__price">
+                      ${product.price} <s>${product.compareAtPrice}</s>
+                    </div>
+                    <span className="btn-primary shop-item-cta">Shop Now</span>
                   </Link>
                 </div>
               ))}

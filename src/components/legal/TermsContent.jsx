@@ -8,10 +8,13 @@ export default function TermsContent() {
         <strong>Overview</strong>
       </h2>
       <p>
-        Thank you for choosing {BRAND.name}. Throughout these terms, &quot;we,&quot; &quot;us,&quot; and &quot;our&quot; refer
-        to {BRAND.name}, a brand of {COMPANY.name}. We operate this website and online store, providing you with access to
-        our full range of content, features, tools, products, and services designed to deliver a premium shopping
-        experience (collectively, the &quot;Services&quot;).
+        These Terms govern purchases of Organic Beet Root Capsules and related services on the {BRAND.name} website,
+        operated by {COMPANY.name}, {COMPANY.fullAddress}. Throughout these terms, &quot;we,&quot; &quot;us,&quot; and
+        &quot;our&quot; mean {COMPANY.name} doing business as {BRAND.name}. Card charges appear as {COMPANY.name}. We are
+        an Iowa merchant. This catalog is organic beet root nutrition only.
+      </p>
+      <p>
+        <strong>Last updated:</strong> August 23, 2026.
       </p>
       <p>
         These terms and conditions, along with any supplemental policies referenced within them (collectively, the
@@ -81,7 +84,8 @@ export default function TermsContent() {
       <p>
         Estimated delivery dates are provided as approximations and are not guaranteed. {BRAND.name} assumes no
         responsibility for shipping delays attributable to carriers, customs clearance, adverse weather, or other
-        circumstances beyond our control.
+        circumstances beyond our control. Please refer to our <Link to="/shipping-policy">Shipping Policy</Link> for
+        additional information.
       </p>
 
       <h2>
@@ -290,6 +294,8 @@ export default function TermsContent() {
         {COMPANY.addressLine1}, {COMPANY.addressLine2}
         <br />
         Email: <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
+        <br />
+        Phone: <a href={COMPANY.phoneHref}>{COMPANY.phone}</a>
       </p>
     </>
   )

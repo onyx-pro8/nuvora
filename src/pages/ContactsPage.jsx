@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import SiteLayout from '../components/SiteLayout'
+import PageBanner from '../components/PageBanner'
 import ShippingSection from '../components/ShippingSection'
-import { COMPANY } from '../data/site'
+import { BRAND, COMPANY } from '../data/site'
 
 export default function ContactsPage() {
   const [form, setForm] = useState({
@@ -57,53 +58,60 @@ export default function ContactsPage() {
   return (
     <SiteLayout pageStyles={['pages']}>
       <main className="all-product">
+        <PageBanner kicker={BRAND.tagline} title="Contact NUVORA">
+          We are committed to providing excellent customer service. Reach {COMPANY.name} by phone or email during listed
+          hours.
+        </PageBanner>
+
         <div className="breadcrumbs">
           <div className="container">
             <Link to="/" className="get_page" data-page="index">
               Home
             </Link>{' '}
-            / <span>Contacts</span>
+            / <span>Contact</span>
           </div>
         </div>
 
         <section className="contact-section">
-          <div className="container">
-            <div className="contact-title">Drop Us a Line</div>
-            <div className="contact-description">
-              We are committed to providing excellent customer service. If you have any questions or concerns, please
-              contact our team by email at{' '}
-              <a className="email__line" href={`mailto:${COMPANY.email}`}>
-                {COMPANY.email}
-              </a>
-              .
-            </div>
-
-            <div className="contact-info">
-              <div className="contact-info__title">
-                <span className="companyName">{COMPANY.name}</span>
-              </div>
-              <div className="contact-info-box">
+          <div className="container contact-layout">
+            <div>
+            <div className="contact-directory">
+              <div className="contact-card">
+                <h3>Call</h3>
                 <p>
-                  Address: <span className="address__line">{COMPANY.fullAddress}</span>
+                  <a className="phone__line" href={COMPANY.phoneHref}>
+                    {COMPANY.phone}
+                  </a>
                 </p>
+                <p>{COMPANY.hours}</p>
               </div>
-              <div className="contact-info-box">
+              <div className="contact-card">
+                <h3>Email</h3>
                 <p>
-                  Email:{' '}
                   <a className="email__line" href={`mailto:${COMPANY.email}`}>
                     {COMPANY.email}
                   </a>
                 </p>
+                <p>Order, return, and membership requests</p>
               </div>
-              <div className="contact-info-box">
-                <p>Hours of Operation: {COMPANY.hours}</p>
+              <div className="contact-card">
+                <h3>Company</h3>
+                <p>{COMPANY.name}</p>
+                <p>{COMPANY.fullAddress}</p>
               </div>
+              <div className="contact-card">
+                <h3>Stop a membership</h3>
+                <p>
+                  Use <Link to="/cancellation-request">Easy Cancel</Link> before the next 28-day charge.
+                </p>
+              </div>
+            </div>
             </div>
 
             <div className="contact-form">
-              <div className="contact-form__title">Send us a message</div>
+              <div className="contact-form__title">Write to {COMPANY.name}</div>
               <div className="contact-form__subtitle">
-                If you have any questions, please fill out the form below and we will get back to you as soon as possible.
+                Include your order number if you have one. We reply during listed business hours.
               </div>
               <form id="contactForm" noValidate onSubmit={onSubmit}>
                 <div className="l-r">
@@ -141,9 +149,10 @@ export default function ContactsPage() {
                 />
                 <select name="subject" value={form.subject} onChange={onChange}>
                   <option value="">Select Subject</option>
-                  <option value="order">Order Inquiry</option>
-                  <option value="product">Product Question</option>
-                  <option value="return">Return/Refund</option>
+                  <option value="order">Beet root order</option>
+                  <option value="product">Formula / label question</option>
+                  <option value="return">Return or refund</option>
+                  <option value="membership">Membership billing</option>
                   <option value="other">Other</option>
                 </select>
                 <textarea

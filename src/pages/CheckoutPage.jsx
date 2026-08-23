@@ -12,6 +12,7 @@ import {
   parseMoney,
   readCart,
   removeCartItem,
+  removeVipFromCart,
   updateCartItemQuantity,
   VIP_SKU,
 } from '../utils/cart'
@@ -159,19 +160,23 @@ export default function CheckoutPage() {
                     <circle cx="72" cy="78" r="4" fill="var(--color-primary)" />
                   </svg>
                 </div>
-                <h2 className="cart-empty__title">Your cart is empty</h2>
+                <h2 className="cart-empty__title">Your NUVORA cart is empty</h2>
                 <p className="cart-empty__text">
-                  Looks like you haven&apos;t added any supplements to your cart yet. Start shopping to boost your
-                  wellness journey!
+                  Add Organic Beet Root Capsules when you are ready. One-time bottles and optional membership are both
+                  sold by Alecky Complete LLC.
                 </p>
                 <Link to="/shop" className="get_page cart-empty__button button" data-page="shop">
-                  Shop Supplements
+                  Shop Organic Beet Root
                 </Link>
               </div>
             ) : (
               <div className="checkout-content" id="checkoutContent">
+                <p className="checkout-brand-note">
+                  Checkout is processed for {BRAND.name} by {COMPANY.name}, {COMPANY.fullAddress}. Card charges appear as{' '}
+                  {COMPANY.name}.
+                </p>
                 <section className="order-section">
-                  <h2 className="section-title">YOUR ORDER</h2>
+                  <h2 className="section-title">ORDER SUMMARY</h2>
                   <div className="order-table">
                     <div className="order-table__header">
                       <span className="col-product">Product</span>
@@ -236,8 +241,18 @@ export default function CheckoutPage() {
                       {showVipFee ? (
                         <div className="order-table__row order-table__row--vip-fee">
                           <div className="col-product">
+                            <button
+                              type="button"
+                              className="remove-item-btn"
+                              aria-label="Remove NUVORA Membership"
+                              onClick={() => removeVipFromCart()}
+                            >
+                              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M4 4L12 12M12 4L4 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                              </svg>
+                            </button>
                             <span className="product-name" style={{ fontWeight: 600 }}>
-                              VIP Membership Fee{' '}
+                              NUVORA Membership{' '}
                               <span style={{ fontWeight: 400, fontSize: '12px', color: '#92400e' }}>
                                 (recurring every 28 days)
                               </span>
@@ -256,7 +271,7 @@ export default function CheckoutPage() {
                   <div className="form-layout">
                     <div className="form-column form-column--left">
                       <div className="form-section">
-                        <h2 className="section-title">PERSONAL INFORMATION</h2>
+                        <h2 className="section-title">YOUR DETAILS</h2>
                         <div className="form-grid form-grid--2col">
                           <div className="form-group">
                             <input
@@ -308,7 +323,7 @@ export default function CheckoutPage() {
                       </div>
 
                       <div className="form-section">
-                        <h2 className="section-title">DELIVERY ADDRESS</h2>
+                        <h2 className="section-title">SHIP TO</h2>
                         <div className="form-grid form-grid--2col">
                           <div className="form-group">
                             <select id="country" name="country" required value={form.country} onChange={onChange}>
@@ -406,15 +421,15 @@ export default function CheckoutPage() {
                           </span>
                         </label>
                         <p className="agreement-note">
-                          You also agree that {BRAND.name} may send you periodic SMS or email messages with updates,
-                          deals, and specials.
+                          You also agree that {COMPANY.name} (NUVORA) may send order updates by email. Marketing messages
+                          are optional and can be stopped by writing to {COMPANY.email}.
                         </p>
                       </div>
                     </div>
 
                     <div className="form-column form-column--right">
                       <div className="form-section">
-                        <h2 className="section-title">PAYMENT DETAILS</h2>
+                        <h2 className="section-title">PAY SECURELY</h2>
                         <div className="form-group">
                           <label className="form-label" htmlFor="cardNumber">
                             Card number*
@@ -523,7 +538,7 @@ export default function CheckoutPage() {
                         </div>
                         {showVipFee ? (
                           <div className="cart-total__row cart-total__row--vip-fee" id="vipFeeRow">
-                            <span>VIP Membership Fee</span>
+                            <span>NUVORA Membership</span>
                             <span id="vipFeeAmount">{formatMoney(totals.vipFee)}</span>
                           </div>
                         ) : null}
@@ -539,7 +554,7 @@ export default function CheckoutPage() {
                           <div className="cart-total__vip-disclosure" id="vipDisclosure">
                             <p>
                               <strong>Subscription Disclosure:</strong> By placing your monthly recurring order of{' '}
-                              <strong className="bank-disclosure-product">VIP Membership</strong> — you will be charged{' '}
+                              <strong className="bank-disclosure-product">NUVORA Membership</strong> — you will be charged{' '}
                               <strong className="bank-disclosure-price">{formatMoney(totals.vipFee)}</strong> now and
                               every 28 days thereafter until you cancel your subscription. You will receive an electronic
                               notification 5 to 7 days prior to your transaction and a receipt after each successful

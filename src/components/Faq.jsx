@@ -2,24 +2,24 @@ import { useState } from 'react'
 
 const FAQ_ITEMS = [
   {
+    q: 'Who operates NUVORA?',
+    a: 'NUVORA is the nutrition store of Alecky Complete LLC in Grimes, Iowa. We sell Organic Beet Root Capsules from Toplux Nutrition. Billing, shipping, and returns are handled by our Iowa company.',
+  },
+  {
     q: 'How do I take Organic Beet Root Capsules?',
-    a: 'Take capsules with water as directed on the bottle. This extra-strength formula provides 2040 mg per serving. Do not exceed the recommended serving unless advised by your healthcare provider.',
+    a: 'Take 2 capsules daily with water, preferably with a meal. This extra-strength formula provides 2040 mg per serving. Do not exceed the recommended serving unless advised by your healthcare provider.',
   },
   {
-    q: 'What is this product made of?',
-    a: 'The listed ingredient is organic beet root. The formula is advertised as organic, non-GMO, vegan, natural, gluten-free, and made in the USA. It comes in convenient capsules from Toplux Nutrition.',
+    q: 'What is in the bottle?',
+    a: 'The listed ingredient is organic beet root powder. Other ingredients are vegetable cellulose (capsule) and organic rice flour. The formula is advertised as USDA Organic, vegan, non-GMO, gluten-free, and made in the USA.',
   },
   {
-    q: 'What can beet root support?',
-    a: 'Organic Beet Root Capsules are advertised to support healthy blood flow and circulation, natural energy and endurance, cardiovascular wellness, and overall vitality. These statements have not been evaluated by the FDA.',
+    q: 'Who manufactures the product?',
+    a: 'The capsules are from Toplux Nutrition / Lux Global Inc. NUVORA (Alecky Complete LLC) is the merchant you order from, and we handle billing, shipping questions, and returns.',
   },
   {
-    q: 'What is your guarantee policy?',
-    a: 'If you are not satisfied, contact Alecky Complete LLC at aleckycomplete@gmail.com within 30 days of purchase. We will help you with a return or refund according to our refund policy.',
-  },
-  {
-    q: 'Is this product vegan and gluten-free?',
-    a: 'Yes. It is advertised as vegan, gluten-free, non-GMO, organic, and natural. Always review the supplement facts panel if you have allergies or dietary restrictions.',
+    q: 'How do returns and memberships work?',
+    a: 'Contact aleckycomplete@gmail.com or 1-702-379-7554 within 30 days of delivery. Memberships can be stopped on the Easy Cancel page before the next 28-day billing date.',
   },
 ]
 

@@ -1,4 +1,4 @@
-/* Checkout Page Styles - Tokyos Health */
+/* Checkout — NUVORA / Alecky Complete LLC */
 /* Note: Header, nav, subheader, footer styles come from base.css */
 
 /* Notification System */
@@ -29,7 +29,7 @@
 .cart-empty__title { font-size: 28px; font-weight: 700; color: #1A1A0E; margin-bottom: 12px; }
 .cart-empty__text { font-size: 16px; color: #7A7A6A; margin-bottom: 32px; line-height: 1.6; }
 .cart-empty__button { display: inline-block; padding: 16px 32px; background: linear-gradient(135deg, #1B5E3B 0%, #3D9A55 100%); color: #fff; font-weight: 600; font-size: 16px; border-radius: 12px; transition: all 0.3s; }
-.cart-empty__button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(155,35,53,0.3); color: #fff; }
+.cart-empty__button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(27,94,59,0.3); color: #fff; }
 
 /* Checkout Content */
 .checkout-content { display: flex; flex-direction: column; gap: 32px; }
@@ -68,7 +68,7 @@
 .form-label { display: block; font-size: 13px; font-weight: 500; color: #7A7A6A; margin-bottom: 8px; }
 .form-group input, .form-group select { width: 100%; padding: 14px 16px; border: 2px solid #e5e7eb; border-radius: 10px; font-size: 15px; font-family: inherit; color: #1A1A0E; background: #fff; transition: all 0.3s; }
 .form-group input::placeholder { color: #A4A090; }
-.form-group input:focus, .form-group select:focus { outline: none; border-color: #1B5E3B; box-shadow: 0 0 0 3px rgba(155,35,53,0.1); }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: #1B5E3B; box-shadow: 0 0 0 3px rgba(27,94,59,0.12); }
 .form-group input.error, .form-group select.error { border-color: #ef4444; }
 .form-group input.error:focus, .form-group select.error:focus { box-shadow: 0 0 0 3px rgba(239,68,68,0.1); }
 .form-group .error-message { display: block; color: #ef4444; font-size: 12px; margin-top: 6px; min-height: 16px; }
@@ -100,7 +100,7 @@
 
 /* Place Order Button */
 .place-order-btn { width: 100%; padding: 18px; background: #8BC34A; color: #fff; font-size: 18px; font-weight: 600; border-radius: 12px; transition: all 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; border: none; cursor: pointer; }
-.place-order-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(212,116,138,0.3); }
+.place-order-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(27,94,59,0.3); }
 .place-order-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none !important; }
 .btn-loader { display: flex; align-items: center; gap: 8px; }
 
@@ -158,4 +158,3 @@
 .cart-total__vip-disclosure a { color: #92400e; font-weight: 600; text-decoration: underline; }
 .cart-total__vip-disclosure a:hover { color: #78350f; }
 .order-table__row--vip-fee { background: #fffbeb; border-left: 3px solid #f59e0b; }
-.order-table__row--vip-fee .col-product { padding-left: 12px; }

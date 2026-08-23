@@ -26,10 +26,9 @@ export default function Newsletter() {
     <section className="newsletter-section animate-section">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Stay in the Loop</h2>
+          <h2 className="section-title">Stay in touch</h2>
           <p className="section-subtitle">
-            Get wellness tips, exclusive offers, and new product announcements delivered to your
-            inbox.
+            Restock notes and member pricing from Alecky Complete LLC in Grimes, Iowa.
           </p>
         </div>
         <div className="subscribe-block">

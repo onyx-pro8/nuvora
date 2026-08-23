@@ -1,3 +1,5 @@
+import { FORMULA_STANDARDS } from '../data/site'
+
 export default function Comparison() {
   return (
     <section className="comparison-section animate-section">
@@ -8,94 +10,17 @@ export default function Comparison() {
             Why Choose <strong>NUVORA</strong>?
           </h2>
           <p className="section-subtitle">
-            See how Organic Beet Root Capsules stack up against common competitors.
+            Extra-strength organic beet root with a published serving size, a named manufacturer, and an Iowa company
+            behind the store.
           </p>
         </div>
-        <div className="comparison-table-wrapper animate-item">
-          <table className="comparison-table">
-            <thead>
-              <tr>
-                <th>Feature</th>
-                <th className="comparison-highlight">NUVORA</th>
-                <th>Brand X</th>
-                <th>Brand Y</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>USDA Organic</td>
-                <td className="comparison-highlight">
-                  <span className="comparison-check">✓</span>
-                </td>
-                <td>
-                  <span className="comparison-x">✗</span>
-                </td>
-                <td>
-                  <span className="comparison-maybe">~</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Non-GMO &amp; Vegan</td>
-                <td className="comparison-highlight">
-                  <span className="comparison-check">✓</span>
-                </td>
-                <td>
-                  <span className="comparison-x">✗</span>
-                </td>
-                <td>
-                  <span className="comparison-x">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Gluten-Free</td>
-                <td className="comparison-highlight">
-                  <span className="comparison-check">✓</span>
-                </td>
-                <td>
-                  <span className="comparison-maybe">~</span>
-                </td>
-                <td>
-                  <span className="comparison-check">✓</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Made in the USA</td>
-                <td className="comparison-highlight">
-                  <span className="comparison-check">✓</span>
-                </td>
-                <td>
-                  <span className="comparison-x">✗</span>
-                </td>
-                <td>
-                  <span className="comparison-maybe">~</span>
-                </td>
-              </tr>
-              <tr>
-                <td>2040 mg Extra Strength</td>
-                <td className="comparison-highlight">
-                  <span className="comparison-check">✓</span>
-                </td>
-                <td>
-                  <span className="comparison-x">✗</span>
-                </td>
-                <td>
-                  <span className="comparison-x">✗</span>
-                </td>
-              </tr>
-              <tr>
-                <td>Capsule Form</td>
-                <td className="comparison-highlight">
-                  <span className="comparison-check">✓</span>
-                </td>
-                <td>
-                  <span className="comparison-maybe">~</span>
-                </td>
-                <td>
-                  <span className="comparison-x">✗</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="formula-standard-grid">
+          {FORMULA_STANDARDS.map((item) => (
+            <article key={item.title} className="formula-standard-card animate-item">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

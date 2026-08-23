@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import SiteLayout from '../components/SiteLayout'
 import ProductGallery from '../components/ProductGallery'
+import Reviews from '../components/Reviews'
 import { BRAND, COMPANY, getProductBySku } from '../data/site'
 import { addProductToCart, formatMoney } from '../utils/cart'
 
@@ -81,7 +82,25 @@ export default function ProductPage() {
                 <h1 className="product-title" id="product-title">
                   {product.name}
                 </h1>
+                <div className="product-spec-bar">
+                  <span>{product.servings}</span>
+                  <span>{product.count}</span>
+                  <span>USDA Organic</span>
+                  <span>Made in the USA</span>
+                </div>
                 <p className="product-brand">{product.brand}</p>
+                <div className="product-merchant">
+                  <strong>Sold by {BRAND.name}</strong> — {COMPANY.name}, {COMPANY.fullAddress}. Manufactured for{' '}
+                  {product.seller}.
+                </div>
+                <div className="product-rating">
+                  <span className="product-rating__stars" aria-label={`${product.rating} out of 5 stars`}>
+                    ★★★★☆
+                  </span>
+                  <span className="product-rating__text">
+                    {product.rating}/5 · {product.reviews} reviews · {product.sold} sold
+                  </span>
+                </div>
 
                 <div className="product-benefits" id="product-benefits">
                   <div className="benefits-grid">
@@ -94,6 +113,22 @@ export default function ProductPage() {
                 </div>
 
                 <div className="product-item__buy">
+                  <div className="product-bundle-row">
+                    {product.quantityOptions.map((option) => (
+                      <button
+                        key={option.value}
+                        type="button"
+                        className={`product-bundle${selectedOption.value === option.value ? ' active' : ''}`}
+                        onClick={() => setSelectedOption(option)}
+                      >
+                        <strong>{option.name}</strong>
+                        <em>${option.total.toFixed(2)}</em>
+                        <small>
+                          {option.supply} · {option.shipNote}
+                        </small>
+                      </button>
+                    ))}
+                  </div>
                   <div className="product-item__buy-quantity">
                     <select
                       className="quantity-select"
@@ -130,7 +165,7 @@ export default function ProductPage() {
                         <path d="M13 3l-1 6H6" />
                       </svg>
                     </span>
-                    <span className="purchase-btn__text">VIP Subscription</span>
+                    <span className="purchase-btn__text">NUVORA Members</span>
                     <span className="purchase-btn__price vip-price">({formatMoney(vipTotal)})</span>
                   </button>
 
@@ -146,12 +181,12 @@ export default function ProductPage() {
                       </span>
                     </p>
                     <p>
-                      Subscriptions are activated only when the VIP Subscription option is selected at checkout. Cancel
-                      anytime via email or at{' '}
+                      Subscriptions are activated only when the NUVORA Members option is selected at checkout. Cancel
+                      anytime via email, phone, or{' '}
                       <Link to="/cancellation-request" className="disclaimer-link">
-                        our Easy Cancel page
+                        Easy Cancel
                       </Link>
-                      . To pay full price with no subscription, click the &quot;One Time Purchase&quot; button below.
+                      . To buy a bottle without membership, use One-Time Purchase.
                     </p>
                   </div>
 
@@ -162,7 +197,7 @@ export default function ProductPage() {
                     data-purchase-type="onetime"
                     onClick={() => goToCheckout('onetime')}
                   >
-                    <span className="purchase-btn__text">One Time Purchase</span>
+                    <span className="purchase-btn__text">One-time bottle</span>
                     <span className="purchase-btn__price one-time-price">({formatMoney(oneTimeTotal)})</span>
                   </button>
 
@@ -174,18 +209,24 @@ export default function ProductPage() {
                   </div>
                 </div>
 
+                <div className="product-suggest">
+                  <p>
+                    <strong>Suggested use:</strong> {facts.suggestedUse}
+                  </p>
+                </div>
+
                 <div className="product-accordion">
-                  <AccordionItem title="HOW IT WORKS">
+                  <AccordionItem title="THE FORMULA">
                     <div id="how-it-works-content">
                       <p>{product.accordion.howItWorks}</p>
                     </div>
                   </AccordionItem>
-                  <AccordionItem title="SHIPPING INFORMATION">
+                  <AccordionItem title="SHIPPING FROM THE U.S.">
                     <div id="shipping-content">
                       <p>{product.accordion.shipping}</p>
                     </div>
                   </AccordionItem>
-                  <AccordionItem title="OUR GUARANTEE">
+                  <AccordionItem title="30-DAY IOWA RETURNS">
                     <div id="guarantee-content">
                       <p>{product.accordion.guarantee}</p>
                     </div>
@@ -241,15 +282,18 @@ export default function ProductPage() {
 
                 <div className="product-description" id="product-description">
                   <p>{product.description}</p>
-                  <p>Seller: {product.seller}</p>
+                  <p>{BRAND.merchantNote}</p>
                   <p>
-                    Operated by {COMPANY.name}, {COMPANY.fullAddress}
+                    Customer care: {COMPANY.phone} · {COMPANY.email}
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </section>
+        <div className="product-reviews-block">
+          <Reviews compact />
+        </div>
       </main>
     </SiteLayout>
   )

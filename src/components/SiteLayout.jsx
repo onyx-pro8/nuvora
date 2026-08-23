@@ -9,7 +9,6 @@ export default function SiteLayout({ children, pageStyles = [], showAnnouncement
   const {
     menuOpen,
     setMenuOpen,
-    countdown,
     scrollVisible,
     scrollToTop,
     cartCount,
@@ -18,7 +17,7 @@ export default function SiteLayout({ children, pageStyles = [], showAnnouncement
   return (
     <>
       <PageStyles sheets={pageStyles} />
-      {showAnnouncement ? <AnnouncementBar countdown={countdown} /> : null}
+      {showAnnouncement ? <AnnouncementBar /> : null}
       <Subheader />
       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} cartCount={cartCount} />
       {children}

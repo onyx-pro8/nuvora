@@ -9,6 +9,7 @@ import TermsPage from './pages/TermsPage'
 import CancellationPage from './pages/CancellationPage'
 import VipPage from './pages/VipPage'
 import RefundPolicyPage from './pages/RefundPolicyPage'
+import ShippingPolicyPage from './pages/ShippingPolicyPage'
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/privacy-policy" element={<PrivacyPage />} />
         <Route path="/terms" element={<TermsPage />} />
         <Route path="/refund-policy" element={<RefundPolicyPage />} />
+        <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
         <Route path="/cancellation-request" element={<CancellationPage />} />
         <Route path="/vip" element={<VipPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />

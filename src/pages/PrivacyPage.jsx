@@ -1,12 +1,18 @@
 import { Link } from 'react-router-dom'
 import SiteLayout from '../components/SiteLayout'
+import PageBanner from '../components/PageBanner'
 import ShippingSection from '../components/ShippingSection'
+import LegalAside from '../components/LegalAside'
 import { BRAND, COMPANY } from '../data/site'
 
 export default function PrivacyPage() {
   return (
     <SiteLayout pageStyles={['pages']}>
       <main className="all-product">
+        <PageBanner kicker="Privacy" title={`How ${BRAND.name} uses your information`}>
+          {COMPANY.name} collects only what is needed to sell Organic Beet Root Capsules, ship orders, and answer
+          support mail from Grimes, Iowa.
+        </PageBanner>
         <div className="breadcrumbs">
           <div className="container">
             <Link to="/" className="get_page" data-page="index">
@@ -17,66 +23,52 @@ export default function PrivacyPage() {
         </div>
 
         <section className="privacy-section">
-          <div className="container privacy-content">
-            <h1>Privacy Policy</h1>
+          <div className="container legal-shell">
+            <LegalAside />
+            <div className="privacy-content">
             <p>
-              <strong>Last Updated:</strong> March 2026
+              <strong>Last updated:</strong> August 23, 2026
+            </p>
+            <p>
+              This Privacy Policy describes how {COMPANY.name}, doing business as {BRAND.name} (&quot;we,&quot;
+              &quot;us,&quot; or &quot;our&quot;), collects, uses, and discloses personal data when you visit this site,
+              place an order for Organic Beet Root Capsules, join a membership, or email {COMPANY.email}. It applies only
+              to this Iowa storefront — not to Toplux Nutrition&apos;s own websites or to unrelated supplement brands.
             </p>
 
-            <p>
-              This Privacy Policy describes how {BRAND.name} (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects,
-              uses, and discloses your personal data when you visit, use, or make a purchase through our website or
-              otherwise communicate with us about our services. {BRAND.name} is operated by {COMPANY.name}.
-            </p>
-            <p>Please read this Privacy Policy carefully.</p>
-
-            <h2>Changes to This Privacy Policy</h2>
-            <p>
-              We may update this Privacy Policy from time to time to reflect changes in our practices or for other
-              operational, legal, or regulatory reasons. We will post the updated Privacy Policy on the Site and update the
-              &quot;Last Updated&quot; date.
-            </p>
-
-            <h2>How We Collect and Use Your Personal Data</h2>
-            <p>
-              To provide our services, we collect personal information about you from various sources, including
-              information you provide directly, information collected automatically, and information from third-party
-              service providers such as payment processors.
-            </p>
-
-            <h3>Information You Provide Directly to Us</h3>
+            <h2>Information you give us</h2>
             <ul>
-              <li>Contact details, including your name, address, and email address.</li>
-              <li>Order information, including billing and shipping details.</li>
-              <li>Customer support information, including messages you send to us.</li>
+              <li>Name, shipping address, email, and phone for orders and Easy Cancel requests.</li>
+              <li>Payment details processed by our payment provider. We do not store full card numbers on this site.</li>
+              <li>Messages you send about beet root orders, labels, or returns.</li>
             </ul>
 
-            <h3>Information We Collect About Your Usage</h3>
+            <h2>Information collected automatically</h2>
             <p>
-              We may automatically collect certain information about your interaction with our website, including device
-              information, browser details, IP address, and cookie data.
+              We may collect device, browser, IP address, and cookie data needed to run checkout, prevent fraud, and
+              understand which product pages are used.
             </p>
 
-            <h2>How We Use Your Personal Data</h2>
+            <h2>How we use data</h2>
             <ul>
-              <li>Processing payments and fulfilling orders</li>
-              <li>Providing customer support</li>
-              <li>Sending service notifications and optional marketing communications</li>
-              <li>Improving our website and services</li>
-              <li>Detecting fraud and maintaining security</li>
+              <li>Fulfill and ship Organic Beet Root Capsules</li>
+              <li>Process membership billing every 28 days when you enroll</li>
+              <li>Answer support at {COMPANY.phone} and {COMPANY.email}</li>
+              <li>Send order receipts and, if you subscribe, restock notes</li>
+              <li>Detect fraud and keep checkout secure</li>
             </ul>
 
-            <h2>How We Disclose Your Personal Data</h2>
+            <h2>Who we share with</h2>
             <p>
-              We may disclose personal data to service providers who assist with payment processing, shipping, analytics,
-              customer support, and order fulfillment. We do not sell sensitive personal data without consent.
+              We share data with payment processors, shipping carriers, and service providers who help {COMPANY.name}{' '}
+              operate NUVORA. We do not sell your personal information. The product manufacturer (Toplux Nutrition / Lux
+              Global Inc.) is not given your payment card for our checkout.
             </p>
 
-            <h2>Your Rights</h2>
+            <h2>Your rights</h2>
             <p>
-              Depending on where you live, you may have rights to access, correct, delete, or restrict processing of your
-              personal data. To exercise these rights, contact us at{' '}
-              <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>.
+              Depending on where you live, you may request access, correction, or deletion of personal data. Email{' '}
+              <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a> or write to {COMPANY.fullAddress}.
             </p>
 
             <h2>Contact</h2>
@@ -86,7 +78,10 @@ export default function PrivacyPage() {
               {COMPANY.fullAddress}
               <br />
               <a href={`mailto:${COMPANY.email}`}>{COMPANY.email}</a>
+              <br />
+              <a href={COMPANY.phoneHref}>{COMPANY.phone}</a>
             </p>
+          </div>
           </div>
         </section>
 

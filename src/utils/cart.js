@@ -71,7 +71,7 @@ export function addProductToCart({
   }
 
   if (purchaseType === 'vip') {
-    line.title = `${name} (VIP Subscription)`
+    line.title = `${name} (NUVORA Members)`
     line.purchaseType = 'vip'
   }
 
@@ -98,8 +98,8 @@ export function addVipMembershipToCart() {
     cart.push({
       id: VIP_SKU,
       sku: VIP_SKU,
-      title: 'VIP Membership',
-      name: 'VIP Membership',
+      title: 'NUVORA Membership',
+      name: 'NUVORA Membership',
       quantity: 1,
       price: VIP_PRICE.toFixed(2),
       unitPrice: VIP_PRICE.toFixed(2),
@@ -130,6 +130,26 @@ export function updateCartItemQuantity(index, quantity) {
 
 export function removeCartItem(index) {
   return updateCartItemQuantity(index, 0)
+}
+
+export function removeVipFromCart() {
+  const uid = getUid()
+  const cart = readCart(uid)
+    .filter((item) => item.sku !== VIP_SKU && item.purchaseType !== 'vip-membership')
+    .map((item) => {
+      if (item.purchaseType !== 'vip') return item
+      const baseName = String(item.name || item.title || '').replace(/\s*\(NUVORA Members\)\s*$/i, '')
+      return {
+        ...item,
+        purchaseType: 'onetime',
+        title: baseName,
+        name: baseName,
+        shipping: Number(item.shipping) || 4.95,
+      }
+    })
+
+  writeCart(cart, uid)
+  return cart
 }
 
 export function clearCart(uid) {

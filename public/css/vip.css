@@ -1,4 +1,4 @@
-/* VIP Pages Styles - Consistent with Tokyos Health Design System */
+/* NUVORA member plan styles */
 
 :root {
     /* VIP-specific tokens mapped to main brand palette */
@@ -19,8 +19,8 @@
     --vip-border-light: #EDF2F7;
     --vip-radius: 16px;
     --vip-radius-sm: 10px;
-    --vip-shadow: 0 4px 20px rgba(155,35,53,0.06);
-    --vip-shadow-lg: 0 12px 32px rgba(155,35,53,0.1);
+    --vip-shadow: 0 4px 20px rgba(27, 94, 59, 0.08);
+    --vip-shadow-lg: 0 12px 32px rgba(27, 94, 59, 0.12);
     --vip-transition: all 0.3s ease;
 }
 
@@ -44,7 +44,7 @@
     right: -20%;
     width: 80%;
     height: 200%;
-    background: radial-gradient(ellipse at center, rgba(212,116,138,0.2) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(139, 195, 74,0.2) 0%, transparent 70%);
     animation: vip-glow 12s ease-in-out infinite;
     pointer-events: none;
 }
@@ -232,7 +232,7 @@
 .vip-benefit-icon {
     width: 72px;
     height: 72px;
-    background: linear-gradient(135deg, rgba(155,35,53,0.08), rgba(212,116,138,0.1));
+    background: linear-gradient(135deg, rgba(27, 94, 59,0.08), rgba(139, 195, 74,0.1));
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -245,7 +245,7 @@
 
 .vip-benefit-card:hover .vip-benefit-icon {
     transform: scale(1.08);
-    background: linear-gradient(135deg, rgba(155,35,53,0.12), rgba(212,116,138,0.15));
+    background: linear-gradient(135deg, rgba(27, 94, 59,0.12), rgba(139, 195, 74,0.15));
 }
 
 .vip-benefit-card h3 {
@@ -593,7 +593,7 @@
     left: -20%;
     width: 80%;
     height: 200%;
-    background: radial-gradient(ellipse at center, rgba(212,116,138,0.15) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(139, 195, 74,0.15) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -679,7 +679,7 @@
     background: #4F8A2F;
     border-color: #4F8A2F;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(212,116,138,0.3);
+    box-shadow: 0 4px 12px rgba(139, 195, 74,0.3);
 }
 
 .vip-btn-outline {
@@ -751,7 +751,7 @@
     right: -20%;
     width: 80%;
     height: 200%;
-    background: radial-gradient(ellipse at center, rgba(212,116,138,0.2) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(139, 195, 74,0.2) 0%, transparent 70%);
     animation: vip-glow 12s ease-in-out infinite;
     pointer-events: none;
 }
@@ -866,7 +866,7 @@
 .vip-form-group textarea:focus {
     outline: none;
     border-color: var(--vip-accent);
-    box-shadow: 0 0 0 3px rgba(212,116,138,0.12);
+    box-shadow: 0 0 0 3px rgba(139, 195, 74,0.12);
     background: var(--vip-white);
 }
 
@@ -992,7 +992,7 @@
 .vip-quick-link-icon {
     width: 48px;
     height: 48px;
-    background: linear-gradient(135deg, rgba(155,35,53,0.08), rgba(212,116,138,0.1));
+    background: linear-gradient(135deg, rgba(27, 94, 59,0.08), rgba(139, 195, 74,0.1));
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -1331,7 +1331,7 @@
 .vip-pd-thumb { flex:0 0 68px; width:68px; height:68px; border:2px solid transparent; border-radius:8px; background: var(--color-surface-dark); padding:4px; cursor:pointer; transition: all 0.2s; overflow:hidden; }
 .vip-pd-thumb img { width:100%; height:100%; object-fit: contain; }
 .vip-pd-thumb:hover { border-color: var(--color-accent-light); }
-.vip-pd-thumb.active { border-color: var(--color-primary); box-shadow: 0 4px 12px rgba(155,35,53,0.18); }
+.vip-pd-thumb.active { border-color: var(--color-primary); box-shadow: 0 4px 12px rgba(27, 94, 59,0.18); }
 
 .vip-pd-info { flex:1; position: sticky; top: 100px; }
 .vip-pd-info h1 { font-size: 28px; font-weight:700; color: var(--color-text-primary); margin: 0 0 14px; line-height: 1.25; }
@@ -1345,8 +1345,8 @@
 .vip-pd-description p { margin: 0 0 12px; }
 .vip-pd-description strong { color: var(--color-text-primary); }
 
-.vip-pd-add-btn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding: 16px 24px; font-size:16px; font-weight:700; color:#fff; background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-light) 100%); border:none; border-radius:10px; cursor:pointer; box-shadow: 0 4px 14px rgba(155,35,53,0.3); transition: transform 0.15s, box-shadow 0.15s; letter-spacing:0.02em; margin-bottom:14px; }
-.vip-pd-add-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(155,35,53,0.4); }
+.vip-pd-add-btn { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding: 16px 24px; font-size:16px; font-weight:700; color:#fff; background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 50%, var(--color-primary-light) 100%); border:none; border-radius:10px; cursor:pointer; box-shadow: 0 4px 14px rgba(27, 94, 59,0.3); transition: transform 0.15s, box-shadow 0.15s; letter-spacing:0.02em; margin-bottom:14px; }
+.vip-pd-add-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(27, 94, 59,0.4); }
 .vip-pd-add-btn:active { transform: translateY(0); }
 
 .vip-pd-cards { display:flex; gap:10px; align-items:center; margin-bottom:22px; }
@@ -1394,7 +1394,7 @@
 
 .vip-pd-hiw-grid { display:grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .vip-pd-hiw-step { position:relative; background: var(--color-white); padding: 28px 22px 24px; border-radius: 14px; border: 1px solid var(--color-surface-dark); }
-.vip-pd-hiw-num { position:absolute; top:-20px; left:22px; width:40px; height:40px; border-radius:50%; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:16px; box-shadow: 0 4px 12px rgba(155,35,53,0.25); }
+.vip-pd-hiw-num { position:absolute; top:-20px; left:22px; width:40px; height:40px; border-radius:50%; background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:16px; box-shadow: 0 4px 12px rgba(27, 94, 59,0.25); }
 .vip-pd-hiw-step h3 { font-size:17px; font-weight:700; color: var(--color-text-primary); margin: 16px 0 8px; }
 .vip-pd-hiw-step p { font-size:14px; line-height:1.6; color: var(--color-text-secondary); margin: 0; }
 
@@ -1403,7 +1403,7 @@
 .vip-pd-faq-item summary { display:flex; align-items:center; gap:12px; padding: 16px 20px; font-size:15px; font-weight:600; color: var(--color-text-primary); cursor:pointer; list-style:none; }
 .vip-pd-faq-item summary::-webkit-details-marker { display:none; }
 .vip-pd-faq-item summary > span { flex:1; }
-.vip-pd-faq-item[open] { box-shadow: 0 2px 10px rgba(155,35,53,0.08); border-color: var(--color-primary-light); }
+.vip-pd-faq-item[open] { box-shadow: 0 2px 10px rgba(27, 94, 59,0.08); border-color: var(--color-primary-light); }
 .vip-pd-faq-body { padding: 0 20px 18px; font-size:14px; line-height:1.65; color: var(--color-text-secondary); }
 .vip-pd-faq-body p { margin: 0; }
 .vip-pd-faq-body a { color: var(--color-primary); }

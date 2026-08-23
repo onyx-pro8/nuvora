@@ -1,0 +1,248 @@
+/* NUVORA supporting layout — does not override homepage hero color or animation */
+:root {
+  --color-teal-light: #E4F0DC;
+}
+
+.hero-spec-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 28px;
+}
+
+.hero-spec {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  color: #eef8e4;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.announcement-bar__timer {
+  display: none !important;
+}
+
+.announcement-bar__content {
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.all-product .hero-section .hero-badge {
+  margin-bottom: 16px;
+}
+
+.all-product .hero-section .page-banner__title {
+  margin: 0;
+  color: #fff;
+  font-family: Sora, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.all-product .hero-section .page-banner__lede {
+  margin: 16px 0 0;
+  max-width: 40rem;
+}
+
+.formula-standard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.formula-standard-card {
+  background: #fff;
+  border: 1px solid #d7e6cc;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.formula-standard-card h3 {
+  margin: 0 0 8px;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+}
+
+.formula-standard-card p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.shop-catalog {
+  padding: 20px 0 40px;
+}
+
+.shop-item-brand,
+.shop-item-meta {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.shop-item-cta {
+  display: inline-block;
+  margin-top: 14px;
+}
+
+.product-spec-bar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 22px;
+}
+
+.product-spec-bar span {
+  display: block;
+  background: #f3f8ee;
+  border: 1px solid #d7e6cc;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.product-merchant {
+  margin: 12px 0 16px;
+  padding: 14px 16px;
+  background: #f3f8ee;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+}
+
+.product-merchant strong {
+  color: var(--color-primary);
+}
+
+.product-bundle-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.product-bundle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 96px;
+}
+
+.product-bundle strong {
+  font-size: 15px;
+}
+
+.product-bundle em {
+  font-style: normal;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.product-bundle small {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-directory {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin: 0 0 24px;
+}
+
+.contact-card {
+  background: #fff;
+  border: 1px solid #d7e6cc;
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+
+.contact-card h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+.contact-card p,
+.contact-card a {
+  margin: 0;
+  color: var(--color-text-secondary);
+}
+
+.cancel-panel {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid #d7e6cc;
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.checkout-brand-note {
+  margin: 0 0 24px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.legal-shell {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+  padding-top: 28px;
+  padding-bottom: 40px;
+}
+
+.legal-aside {
+  background: #fff;
+  border: 1px solid #d7e6cc;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.legal-aside h3 {
+  margin: 0 0 10px;
+  color: var(--color-primary);
+  font-size: 1rem;
+}
+
+.legal-aside p,
+.legal-aside a {
+  margin: 0 0 8px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.shipping-box__text {
+  text-transform: none;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .product-spec-bar,
+  .product-bundle-row,
+  .contact-layout,
+  .legal-shell,
+  .formula-standard-grid {
+    grid-template-columns: 1fr;
+  }
+}

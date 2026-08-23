@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { PRODUCT } from '../data/site'
+import { BRAND, PRODUCT } from '../data/site'
 
 const CheckIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -53,7 +53,7 @@ export default function FeaturedProduct() {
             >
               Shop Now
             </Link>
-            <p className="product-seller">Seller: {PRODUCT.seller}</p>
+            <p className="product-seller">{BRAND.merchantNote}</p>
           </div>
         </div>
       </div>

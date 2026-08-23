@@ -8,8 +8,7 @@ export default function Benefits() {
             What <strong>NUVORA</strong> Can Do For You
           </h2>
           <p className="section-subtitle">
-            A simple, organic beet root formula made to support circulation, natural energy, and
-            everyday wellness.
+            A simple, organic beet root formula made to support circulation, natural energy, and everyday wellness.
           </p>
         </div>
         <div className="benefits-content-grid">
@@ -21,8 +20,7 @@ export default function Benefits() {
             </div>
             <h3>Natural Energy</h3>
             <p>
-              Extra-strength beet root (2040 mg per serving) helps support endurance and daily
-              energy without stimulants.
+              Extra-strength beet root (2040 mg per serving) helps support endurance and daily energy without stimulants.
             </p>
           </div>
           <div className="benefit-content-card animate-item">
@@ -33,8 +31,7 @@ export default function Benefits() {
             </div>
             <h3>Blood Flow &amp; Circulation</h3>
             <p>
-              Beet root is widely used to support healthy blood flow and circulation as part of an
-              active lifestyle.
+              Beet root is widely used to support healthy blood flow and circulation as part of an active lifestyle.
             </p>
           </div>
           <div className="benefit-content-card animate-item">
@@ -45,8 +42,7 @@ export default function Benefits() {
             </div>
             <h3>Heart &amp; Vitality</h3>
             <p>
-              Formulated to support cardiovascular wellness, antioxidant defense, and overall
-              vitality.
+              Formulated to support cardiovascular wellness, antioxidant defense, and overall vitality.
             </p>
           </div>
           <div className="benefit-content-card animate-item">
@@ -57,8 +53,7 @@ export default function Benefits() {
             </div>
             <h3>Clean Formula</h3>
             <p>
-              USDA Organic, non-GMO, vegan, gluten-free, and made in the USA — just organic beet
-              root in convenient capsules.
+              USDA Organic, non-GMO, vegan, gluten-free, and made in the USA — organic beet root in convenient capsules.
             </p>
           </div>
         </div>
