@@ -28,8 +28,8 @@ export const PRODUCT = {
   image: '/images/organic-beet-root.png',
   alt: 'Toplux Nutrition Organic Beet Root Capsules',
   gallery: [
-    '/images/organic-beet-root-2.jpg',
-    '/images/organic-beet-root-3.jpg',
+    '/images/organic-beet-root-2.png',
+    '/images/organic-beet-root-3.png',
     '/images/organic-beet-root-4.png',
   ],
   description:
