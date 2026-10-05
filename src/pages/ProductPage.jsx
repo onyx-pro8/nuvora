@@ -247,9 +247,16 @@ export default function ProductPage() {
 
                 <div className="product-label-block">
                   <h2>Supplement facts</h2>
+                  <img
+                    className="product-label-image"
+                    src={product.labelImage}
+                    alt="Supplement facts label for Organic Beet Root Capsules: 2 capsules per serving, 45 servings, 2040 mg organic beet root powder"
+                    width="840"
+                    height="1120"
+                  />
                   <p className="label-pending">
-                    The manufacturer&apos;s label image is not in this project. The text below is the ingredient
-                    information already stored for this product. It is not a photographed label.
+                    This label graphic uses the bottle colors and the supplement facts already stored for this product.
+                    It is not a photograph of the manufacturer&apos;s printed label.
                   </p>
                   <p>Serving size: {facts.servingSize}</p>
                   <p>Servings per container: {facts.servingsPerContainer}</p>

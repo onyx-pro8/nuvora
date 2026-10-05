@@ -298,6 +298,16 @@
   margin: 20px 0;
 }
 
+.product-label-image {
+  display: block;
+  width: min(100%, 420px);
+  height: auto;
+  margin: 0 0 16px;
+  border: 1px solid #e6d3a1;
+  border-radius: 8px;
+  background: #fff;
+}
+
 .label-pending {
   background: #fff8e8;
   border: 1px solid #e6d3a1;

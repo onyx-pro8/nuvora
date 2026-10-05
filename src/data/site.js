@@ -32,6 +32,7 @@ export const PRODUCT = {
     '/images/organic-beet-root-3.png',
     '/images/organic-beet-root-4.png',
   ],
+  labelImage: '/images/organic-beet-root-label.jpg',
   description:
     'Organic beet root capsules formulated to support healthy blood flow and circulation, natural energy, and overall wellness. Extra-strength 2040 mg per serving, USDA Organic, and made in the USA.',
   benefits: [
