@@ -237,6 +237,96 @@
   font-weight: 500;
 }
 
+.purchase-choice {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.purchase-choice__lead,
+.subscription-disclaimer,
+.product-label-block,
+.product-fda,
+.subscription-consent__text,
+.subscription-facts,
+.order-confirmation {
+  font-size: 16px;
+  line-height: 1.55;
+  color: #1a1a0e;
+}
+
+.subscription-facts {
+  margin: 0 0 16px;
+  padding-left: 18px;
+}
+
+.subscription-facts li {
+  margin: 0 0 8px;
+}
+
+.purchase-choice label {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  border: 2px solid #d7e6cc;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.purchase-choice label.is-selected {
+  border-color: #1b5e3b;
+}
+
+.purchase-choice small {
+  display: block;
+  margin-top: 6px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #1a1a0e;
+}
+
+.purchase-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.product-label-block,
+.subscription-disclaimer,
+.product-fda {
+  margin: 20px 0;
+}
+
+.label-pending {
+  background: #fff8e8;
+  border: 1px solid #e6d3a1;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.subscription-consent {
+  margin-bottom: 20px;
+}
+
+.subscription-consent__text {
+  font-size: 16px;
+}
+
+.order-confirmation {
+  max-width: 760px;
+  padding: 32px 0 64px;
+}
+
+.order-confirmation h1,
+.order-confirmation h2 {
+  color: #1b5e3b;
+}
+
+.fda-disclaimer p {
+  margin: 0 0 8px;
+}
+
 @media (max-width: 900px) {
   .product-spec-bar,
   .product-bundle-row,

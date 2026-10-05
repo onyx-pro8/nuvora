@@ -46,9 +46,9 @@ export default function CancellationPage() {
   return (
     <SiteLayout pageStyles={['pages']}>
       <main className="all-product">
-        <PageBanner kicker="Easy Cancel" title="Stop a NUVORA membership">
-          Submit this form before your next 28-day billing date. {COMPANY.name} will confirm by email. You can also call{' '}
-          {COMPANY.phone}.
+        <PageBanner kicker="Easy Cancel" title="Request a membership cancellation">
+          Send this request before the next 28-day billing date. You can also email {COMPANY.email} or call {COMPANY.phone}.
+          This form records the request. It does not refund a bottle that already shipped.
         </PageBanner>
 
         <div className="breadcrumbs">
@@ -64,9 +64,9 @@ export default function CancellationPage() {
           <div className="container">
             <div className="cancel-panel">
               <p>
-                This stops future membership charges from {COMPANY.name}. It does not automatically refund bottles already
-                shipped. For returns, use the{' '}
-                <Link to="/refund-policy">Refund Policy</Link> or email {COMPANY.email}.
+                Use this form, {COMPANY.email}, or {COMPANY.phone} before the next 28-day billing date. The published
+                refund policy does not list a cancellation fee or a restocking fee. A submitted request does not refund
+                bottles that already shipped. See the <Link to="/refund-policy">Refund Policy</Link>.
               </p>
 
               <form id="cancel" noValidate onSubmit={onSubmit}>
@@ -139,7 +139,8 @@ export default function CancellationPage() {
                 <div className="itm">
                   <label>&nbsp;</label>
                   <div className="text-success" style={{ display: success ? 'block' : 'none' }}>
-                    Request received. Watch {COMPANY.email} traffic for a confirmation from {COMPANY.name}.
+                    Request received. No cancellation email was sent from this website, because email delivery is not
+                    configured. Contact {COMPANY.name} at {COMPANY.email} or {COMPANY.phone} if you need a reply.
                   </div>
                   {error ? <div className="text-success" style={{ display: 'block' }}>{error}</div> : null}
                 </div>

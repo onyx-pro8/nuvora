@@ -10,6 +10,7 @@ import CancellationPage from './pages/CancellationPage'
 import VipPage from './pages/VipPage'
 import RefundPolicyPage from './pages/RefundPolicyPage'
 import ShippingPolicyPage from './pages/ShippingPolicyPage'
+import OrderConfirmationPage from './pages/OrderConfirmationPage'
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/refund-policy" element={<RefundPolicyPage />} />
         <Route path="/shipping-policy" element={<ShippingPolicyPage />} />
         <Route path="/cancellation-request" element={<CancellationPage />} />
+        <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
         <Route path="/vip" element={<VipPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

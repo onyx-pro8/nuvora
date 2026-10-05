@@ -4,7 +4,8 @@ import SiteLayout from '../components/SiteLayout'
 import ProductGallery from '../components/ProductGallery'
 import Reviews from '../components/Reviews'
 import { BRAND, COMPANY, getProductBySku } from '../data/site'
-import { addProductToCart, formatMoney } from '../utils/cart'
+import terms from '../data/subscription.json'
+import { addProductToCart, addVipMembershipToCart, formatMoney } from '../utils/cart'
 
 const PRODUCT_PAGE_STYLES = ['product']
 
@@ -27,25 +28,30 @@ export default function ProductPage() {
   const [searchParams] = useSearchParams()
   const product = useMemo(() => getProductBySku(searchParams.get('sku')), [searchParams])
   const [selectedOption, setSelectedOption] = useState(product.quantityOptions[0])
+  const [purchaseChoice, setPurchaseChoice] = useState(null)
 
   useEffect(() => {
     setSelectedOption(product.quantityOptions[0])
+    setPurchaseChoice(null)
     document.title = `${product.name} - ${BRAND.name}`
   }, [product])
 
   const oneTimeTotal = selectedOption.total + selectedOption.shipping
-  const vipTotal = Number(product.vipPrice)
 
-  const goToCheckout = (purchaseType) => {
+  const goToCheckout = () => {
+    if (!purchaseChoice) return
+
     addProductToCart({
       sku: product.sku,
       name: product.name,
       image: product.gallery[0],
-      price: purchaseType === 'vip' ? product.vipPrice : selectedOption.total.toFixed(2),
+      price: selectedOption.total.toFixed(2),
       quantity: selectedOption.value,
-      purchaseType,
-      shipping: purchaseType === 'vip' ? 0 : selectedOption.shipping,
+      purchaseType: 'onetime',
+      shipping: purchaseChoice === 'subscription' ? 0 : selectedOption.shipping,
     })
+
+    if (purchaseChoice === 'subscription') addVipMembershipToCart()
     navigate('/checkout')
   }
 
@@ -151,54 +157,78 @@ export default function ProductPage() {
                 </div>
 
                 <div className="type_product">
-                  <button
-                    type="button"
-                    className="purchase-btn vip-subscription-btn"
-                    id="vip-subscription-btn"
-                    data-purchase-type="vip"
-                    onClick={() => goToCheckout('vip')}
-                  >
-                    <span className="purchase-btn__icon">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M6 3h12l4 6-10 13L2 9z" />
-                        <path d="M11 3l1 6h6" />
-                        <path d="M13 3l-1 6H6" />
-                      </svg>
-                    </span>
-                    <span className="purchase-btn__text">NUVORA Members</span>
-                    <span className="purchase-btn__price vip-price">({formatMoney(vipTotal)})</span>
-                  </button>
+                  <p className="purchase-choice__lead">Choose one option. Membership is not selected for you.</p>
+                  <div className="purchase-choice">
+                    <label className={purchaseChoice === 'onetime' ? 'is-selected' : ''}>
+                      <input
+                        type="radio"
+                        name="purchase-choice"
+                        checked={purchaseChoice === 'onetime'}
+                        onChange={() => setPurchaseChoice('onetime')}
+                      />
+                      <span>
+                        <strong>One-time purchase</strong>
+                        <small>
+                          {selectedOption.name} ({selectedOption.supply}) · {formatMoney(selectedOption.total)} +{' '}
+                          {formatMoney(selectedOption.shipping)} shipping · {formatMoney(oneTimeTotal)} due now. No
+                          recurring charge.
+                        </small>
+                      </span>
+                    </label>
+                    <label className={purchaseChoice === 'subscription' ? 'is-selected' : ''}>
+                      <input
+                        type="radio"
+                        name="purchase-choice"
+                        checked={purchaseChoice === 'subscription'}
+                        onChange={() => setPurchaseChoice('subscription')}
+                      />
+                      <span>
+                        <strong>NUVORA Membership</strong>
+                        <small>
+                          {selectedOption.name} ({product.count} per bottle) charged once at{' '}
+                          {formatMoney(selectedOption.total)} with $0.00 shipping on this order, plus{' '}
+                          {formatMoney(terms.recurringPrice)} {terms.intervalLabel} until you cancel. No introductory
+                          price.
+                        </small>
+                      </span>
+                    </label>
+                  </div>
 
                   <div className="subscription-disclaimer" id="subscription-disclaimer">
-                    <p>
-                      <strong>Subscription Terms:</strong>{' '}
-                      <span id="bank-subscription-disclosure">
-                        By placing your monthly recurring order of{' '}
-                        <strong className="bank-disclosure-product">{product.name}</strong> — you will be charged{' '}
-                        <strong className="bank-disclosure-price">{formatMoney(vipTotal)}</strong> now and every 28 days
-                        thereafter until you cancel your subscription. You will receive an electronic notification 5 to 7
-                        days prior to your transaction and a receipt after each successful transaction.
-                      </span>
-                    </p>
-                    <p>
-                      Subscriptions are activated only when the NUVORA Members option is selected at checkout. Cancel
-                      anytime via email, phone, or{' '}
-                      <Link to="/cancellation-request" className="disclaimer-link">
-                        Easy Cancel
-                      </Link>
-                      . To buy a bottle without membership, use One-Time Purchase.
-                    </p>
+                    <ul className="subscription-facts">
+                      <li>Subscription: {terms.membershipName}</li>
+                      <li>
+                        Product: {product.name}. A membership shipment does not include a bottle. The bottle in this
+                        order is {selectedOption.name}, {product.count} per bottle, and it is charged once.
+                      </li>
+                      <li>
+                        Initial bottle charge if you choose membership: {formatMoney(selectedOption.total)} with $0.00
+                        shipping.
+                      </li>
+                      <li>Initial membership charge: {formatMoney(terms.recurringPrice)} USD</li>
+                      <li>
+                        Recurring charge: {formatMoney(terms.recurringPrice)} USD {terms.intervalLabel}. There is no
+                        introductory or trial price.
+                      </li>
+                      <li>
+                        Cancel on the Easy Cancel page, by email at {terms.supportEmail}, or by phone at{' '}
+                        {terms.supportPhone}, before the next 28-day billing date.
+                      </li>
+                      <li>
+                        The published refund policy does not list a cancellation fee or a restocking fee. Original
+                        shipping is non-refundable unless the return is our error or the product is defective.
+                      </li>
+                    </ul>
+                    <p>{terms.disclosure}</p>
                   </div>
 
                   <button
                     type="button"
                     className="purchase-btn one-time-purchase-btn"
-                    id="one-time-purchase-btn"
-                    data-purchase-type="onetime"
-                    onClick={() => goToCheckout('onetime')}
+                    disabled={!purchaseChoice}
+                    onClick={goToCheckout}
                   >
-                    <span className="purchase-btn__text">One-time bottle</span>
-                    <span className="purchase-btn__price one-time-price">({formatMoney(oneTimeTotal)})</span>
+                    <span className="purchase-btn__text">Continue to checkout</span>
                   </button>
 
                   <div className="footer-cards product-payment-cards">
@@ -214,6 +244,48 @@ export default function ProductPage() {
                     <strong>Suggested use:</strong> {facts.suggestedUse}
                   </p>
                 </div>
+
+                <div className="product-label-block">
+                  <h2>Supplement facts</h2>
+                  <p className="label-pending">
+                    The manufacturer&apos;s label image is not in this project. The text below is the ingredient
+                    information already stored for this product. It is not a photographed label.
+                  </p>
+                  <p>Serving size: {facts.servingSize}</p>
+                  <p>Servings per container: {facts.servingsPerContainer}</p>
+                  <table className="supplement-table">
+                    <thead>
+                      <tr>
+                        <th>Ingredient</th>
+                        <th>Amount per serving</th>
+                        <th>% Daily Value</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {facts.rows.map(([ingredient, amount, dv]) => (
+                        <tr key={ingredient}>
+                          <td>{ingredient}</td>
+                          <td>{amount}</td>
+                          <td>{dv}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <p>
+                    <strong>Other ingredients:</strong> {facts.otherIngredients}
+                  </p>
+                  <p>
+                    <strong>Suggested use:</strong> {facts.suggestedUse}
+                  </p>
+                  <p>
+                    <strong>Caution:</strong> {facts.caution}
+                  </p>
+                </div>
+
+                <p className="fda-disclaimer product-fda">
+                  These statements have not been evaluated by the Food and Drug Administration. This product is not
+                  intended to diagnose, treat, cure, or prevent any disease.
+                </p>
 
                 <div className="product-accordion">
                   <AccordionItem title="THE FORMULA">

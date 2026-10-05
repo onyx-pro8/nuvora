@@ -1,5 +1,7 @@
-const VIP_SKU = 'vip-membership'
-const VIP_PRICE = 49.99
+import terms from '../data/subscription.json'
+
+const VIP_SKU = terms.membershipSku
+const VIP_PRICE = terms.recurringPrice
 
 function getUid() {
   try {
@@ -173,17 +175,16 @@ export function getCartTotals(cart = readCart()) {
   cart.forEach((item) => {
     const qty = Number(item.quantity || 0)
     const unit = parseMoney(item.unitPrice || item.price)
+
+    if (item.sku === VIP_SKU || item.purchaseType === 'vip-membership') {
+      vipFee += unit * qty
+      return
+    }
+
     subtotal += unit * qty
     quantity += qty
-
-    if (item.sku !== VIP_SKU) {
-      shipping = Math.max(shipping, Number(item.shipping) || 0)
-    }
+    shipping = Math.max(shipping, Number(item.shipping) || 0)
   })
-
-  if (cartHasVipMembership(cart) || cartHasVipProduct(cart)) {
-    vipFee = VIP_PRICE
-  }
 
   return {
     subtotal,

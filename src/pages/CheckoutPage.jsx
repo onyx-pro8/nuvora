@@ -1,9 +1,11 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import SiteLayout from '../components/SiteLayout'
 import TermsContent from '../components/legal/TermsContent'
 import { BRAND, COMPANY } from '../data/site'
+import terms from '../data/subscription.json'
 import {
+  addVipMembershipToCart,
   cartHasVipMembership,
   cartHasVipProduct,
   clearCart,
@@ -84,10 +86,10 @@ const EMPTY_FORM = {
   ageTerms: false,
   refundPolicy: false,
   cardNumber: '',
-  expiryMonth: '',
-  expiryYear: '',
+  cardExpiry: '',
   cvv: '',
   cardName: '',
+  subscriptionConsent: false,
 }
 
 export default function CheckoutPage() {
@@ -96,10 +98,14 @@ export default function CheckoutPage() {
   const [form, setForm] = useState(EMPTY_FORM)
   const [submitting, setSubmitting] = useState(false)
   const [message, setMessage] = useState('')
+  const submitLock = useRef(false)
 
   const refreshCart = () => setCart(readCart())
 
   useEffect(() => {
+    if (cartHasVipProduct(readCart()) && !cartHasVipMembership(readCart())) {
+      addVipMembershipToCart()
+    }
     refreshCart()
     window.addEventListener('cart-updated', refreshCart)
     return () => window.removeEventListener('cart-updated', refreshCart)
@@ -111,29 +117,85 @@ export default function CheckoutPage() {
 
   const onChange = (event) => {
     const { name, value, type, checked } = event.target
-    setForm((current) => ({ ...current, [name]: type === 'checkbox' ? checked : value }))
+    let nextValue = type === 'checkbox' ? checked : value
+
+    if (name === 'cardNumber') {
+      const digits = String(value).replace(/\D/g, '').slice(0, 19)
+      nextValue = digits.replace(/(\d{4})(?=\d)/g, '$1 ')
+    }
+
+    if (name === 'cardExpiry') {
+      const digits = String(value).replace(/\D/g, '').slice(0, 4)
+      nextValue = digits.length > 2 ? `${digits.slice(0, 2)}/${digits.slice(2)}` : digits
+    }
+
+    if (name === 'cvv') {
+      nextValue = String(value).replace(/\D/g, '').slice(0, 4)
+    }
+
+    setForm((current) => ({ ...current, [name]: nextValue }))
   }
 
   const onSubmit = async (event) => {
     event.preventDefault()
+    if (submitLock.current) return
+    submitLock.current = true
     setMessage('')
     setSubmitting(true)
+
+    if (showVipFee && !form.subscriptionConsent) {
+      setMessage('Check the subscription consent box to authorize recurring NUVORA Membership billing.')
+      setSubmitting(false)
+      return
+    }
+
+    if (!form.firstName.trim() || !form.lastName.trim() || !form.email.trim() || !form.address.trim()) {
+      setMessage('Enter your name, email, and shipping address before placing the order.')
+      setSubmitting(false)
+      return
+    }
+
+    if (!form.ageTerms || !form.refundPolicy) {
+      setMessage('Accept the Terms & Conditions and Refund Policy before placing the order.')
+      setSubmitting(false)
+      return
+    }
+
+    const cardDigits = form.cardNumber.replace(/\D/g, '')
+    if (cardDigits.length < 13 || !/^\d{2}\/\d{2}$/.test(form.cardExpiry) || form.cvv.length < 3 || !form.cardName.trim()) {
+      setMessage('Enter the card number, expiry as MM/YY, CVV, and name on the card.')
+      setSubmitting(false)
+      return
+    }
+
+    const safeForm = { ...form }
+    delete safeForm.cardNumber
+    delete safeForm.cvv
+    delete safeForm.cardExpiry
+    delete safeForm.cardName
 
     try {
       const response = await fetch('/api/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, cart, totals }),
+        body: JSON.stringify({ ...safeForm, cart, totals }),
       })
       const data = await response.json()
       if (!response.ok) throw new Error(data.error || 'Unable to place your order.')
+      sessionStorage.setItem(
+        'nuvora-last-order',
+        JSON.stringify({
+          message: data.message,
+          receipt: data.receipt,
+          confirmationText: data.confirmationText,
+        })
+      )
       clearCart()
-      setMessage(data.message || 'Thank you! Your order has been received.')
-      setForm(EMPTY_FORM)
-      window.setTimeout(() => navigate('/shop'), 1800)
+      navigate('/order-confirmation')
     } catch (submitError) {
       setMessage(submitError.message)
     } finally {
+      submitLock.current = false
       setSubmitting(false)
     }
   }
@@ -267,7 +329,23 @@ export default function CheckoutPage() {
                   </div>
                 </section>
 
-                <form id="checkoutForm" className="checkout-form" noValidate onSubmit={onSubmit}>
+                <form id="checkoutForm" className="checkout-form" autoComplete="on" noValidate onSubmit={onSubmit}>
+                  {showVipFee ? (
+                    <div className="form-section subscription-consent">
+                      <h2 className="section-title">SUBSCRIPTION CONSENT</h2>
+                      <label className="checkbox-label">
+                        <input
+                          type="checkbox"
+                          id="subscriptionConsent"
+                          name="subscriptionConsent"
+                          checked={form.subscriptionConsent}
+                          onChange={onChange}
+                        />
+                        <span className="checkbox-custom" />
+                        <span className="checkbox-text subscription-consent__text">{terms.disclosure}</span>
+                      </label>
+                    </div>
+                  ) : null}
                   <div className="form-layout">
                     <div className="form-column form-column--left">
                       <div className="form-section">
@@ -439,8 +517,10 @@ export default function CheckoutPage() {
                               type="text"
                               id="cardNumber"
                               name="cardNumber"
-                              maxLength={19}
-                              placeholder="1234 5678 9012 3456"
+                              inputMode="numeric"
+                              autoComplete="cc-number"
+                              maxLength={23}
+                              placeholder="1234 1234 1234 1234"
                               required
                               value={form.cardNumber}
                               onChange={onChange}
@@ -455,54 +535,34 @@ export default function CheckoutPage() {
                         </div>
                         <div className="form-grid form-grid--expiry">
                           <div className="form-group">
-                            <label className="form-label">Expiry Date*</label>
-                            <div className="expiry-selects">
-                              <select
-                                id="expiryMonth"
-                                name="expiryMonth"
-                                required
-                                value={form.expiryMonth}
-                                onChange={onChange}
-                              >
-                                <option value="">Month</option>
-                                {Array.from({ length: 12 }, (_, index) => {
-                                  const month = String(index + 1).padStart(2, '0')
-                                  return (
-                                    <option key={month} value={month}>
-                                      {month}
-                                    </option>
-                                  )
-                                })}
-                              </select>
-                              <select
-                                id="expiryYear"
-                                name="expiryYear"
-                                required
-                                value={form.expiryYear}
-                                onChange={onChange}
-                              >
-                                <option value="">Year</option>
-                                {Array.from({ length: 15 }, (_, index) => {
-                                  const year = String(26 + index)
-                                  return (
-                                    <option key={year} value={year}>
-                                      20{year}
-                                    </option>
-                                  )
-                                })}
-                              </select>
-                            </div>
+                            <label className="form-label" htmlFor="cardExpiry">
+                              Expiry Date*
+                            </label>
+                            <input
+                              type="text"
+                              id="cardExpiry"
+                              name="cardExpiry"
+                              inputMode="numeric"
+                              autoComplete="cc-exp"
+                              maxLength={5}
+                              placeholder="MM/YY"
+                              required
+                              value={form.cardExpiry}
+                              onChange={onChange}
+                            />
                           </div>
                           <div className="form-group">
                             <label className="form-label" htmlFor="cvv">
                               CVV code*
                             </label>
                             <input
-                              type="text"
+                              type="password"
                               id="cvv"
                               name="cvv"
+                              inputMode="numeric"
+                              autoComplete="cc-csc"
                               maxLength={4}
-                              placeholder="..."
+                              placeholder="***"
                               required
                               value={form.cvv}
                               onChange={onChange}
@@ -517,6 +577,7 @@ export default function CheckoutPage() {
                             type="text"
                             id="cardName"
                             name="cardName"
+                            autoComplete="cc-name"
                             placeholder="Name On Card"
                             required
                             value={form.cardName}
@@ -551,25 +612,16 @@ export default function CheckoutPage() {
                           <span id="cartTotalQty">{totals.quantity}</span>
                         </div>
                         {showVipFee ? (
-                          <div className="cart-total__vip-disclosure" id="vipDisclosure">
-                            <p>
-                              <strong>Subscription Disclosure:</strong> By placing your monthly recurring order of{' '}
-                              <strong className="bank-disclosure-product">NUVORA Membership</strong> — you will be charged{' '}
-                              <strong className="bank-disclosure-price">{formatMoney(totals.vipFee)}</strong> now and
-                              every 28 days thereafter until you cancel your subscription. You will receive an electronic
-                              notification 5 to 7 days prior to your transaction and a receipt after each successful
-                              transaction.
-                            </p>
-                            <p>
-                              You may cancel anytime via <Link to="/cancellation-request">Easy Cancel</Link> or email.
-                            </p>
-                          </div>
+                          <p className="payment-note">
+                            Membership billing is {formatMoney(terms.recurringPrice)} {terms.intervalLabel}. Consent is
+                            required above, before payment details.
+                          </p>
                         ) : null}
 
+                        {message ? <p className="checkout-alert" role="alert">{message}</p> : null}
                         <button type="submit" className="place-order-btn" id="submitOrderBtn" disabled={submitting}>
                           <span className="btn-text">{submitting ? 'Processing...' : 'Place Order'}</span>
                         </button>
-                        {message ? <p className="payment-note">{message}</p> : null}
                       </div>
                     </div>
                   </div>

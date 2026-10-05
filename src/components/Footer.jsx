@@ -91,9 +91,11 @@ export default function Footer() {
         </div>
 
         <div className="fda-disclaimer">
-          *These statements have not been evaluated by the Food and Drug Administration. This product
-          is not intended to diagnose, treat, cure, or prevent any disease. Consult your healthcare
-          provider before starting any supplement program.
+          <p>
+            These statements have not been evaluated by the Food and Drug Administration. This product is not intended
+            to diagnose, treat, cure, or prevent any disease.
+          </p>
+          <p>Consult your healthcare provider before starting any supplement program.</p>
         </div>
 
         <div className="footer-lowbar">
@@ -121,6 +123,9 @@ export default function Footer() {
             </Link>
             <Link to="/shipping-policy" className="get_page" data-page="shipping-policy">
               Shipping Policy
+            </Link>
+            <Link to="/cancellation-request" className="get_page" data-page="cancellation-request">
+              Easy Cancel
             </Link>
           </div>
           <div className="footer-cards">
