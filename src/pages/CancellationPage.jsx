@@ -4,6 +4,7 @@ import SiteLayout from '../components/SiteLayout'
 import PageBanner from '../components/PageBanner'
 import ShippingSection from '../components/ShippingSection'
 import { COMPANY } from '../data/site'
+import { requestCancellation } from '../fake/messages'
 
 export default function CancellationPage() {
   const [form, setForm] = useState({
@@ -20,20 +21,14 @@ export default function CancellationPage() {
     setForm((current) => ({ ...current, [event.target.name]: event.target.value }))
   }
 
-  const onSubmit = async (event) => {
+  const onSubmit = (event) => {
     event.preventDefault()
     setError('')
     setSuccess(false)
     setSubmitting(true)
 
     try {
-      const response = await fetch('/api/cancellation', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      const data = await response.json()
-      if (!response.ok) throw new Error(data.error || 'Unable to submit your cancellation request.')
+      requestCancellation(form)
       setSuccess(true)
       setForm({ firstName: '', lastName: '', email: '', orderId: '' })
     } catch (submitError) {
@@ -139,8 +134,7 @@ export default function CancellationPage() {
                 <div className="itm">
                   <label>&nbsp;</label>
                   <div className="text-success" style={{ display: success ? 'block' : 'none' }}>
-                    Request received. No cancellation email was sent from this website, because email delivery is not
-                    configured. Contact {COMPANY.name} at {COMPANY.email} or {COMPANY.phone} if you need a reply.
+                    Request saved in this demo. No email was sent.
                   </div>
                   {error ? <div className="text-success" style={{ display: 'block' }}>{error}</div> : null}
                 </div>

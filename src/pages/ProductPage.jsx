@@ -4,7 +4,7 @@ import SiteLayout from '../components/SiteLayout'
 import ProductGallery from '../components/ProductGallery'
 import Reviews from '../components/Reviews'
 import { BRAND, COMPANY, getProductBySku } from '../data/site'
-import terms from '../data/subscription.json'
+import terms from '../data/subscription.json' with { type: 'json' }
 import { addProductToCart, addVipMembershipToCart, formatMoney } from '../utils/cart'
 
 const PRODUCT_PAGE_STYLES = ['product']

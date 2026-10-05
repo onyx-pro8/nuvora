@@ -1,4 +1,4 @@
-import terms from '../data/subscription.json'
+import terms from '../data/subscription.json' with { type: 'json' }
 
 const VIP_SKU = terms.membershipSku
 const VIP_PRICE = terms.recurringPrice

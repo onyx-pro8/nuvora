@@ -4,6 +4,7 @@ import SiteLayout from '../components/SiteLayout'
 import PageBanner from '../components/PageBanner'
 import ShippingSection from '../components/ShippingSection'
 import { BRAND, COMPANY } from '../data/site'
+import { sendContact } from '../fake/messages'
 
 export default function ContactsPage() {
   const [form, setForm] = useState({
@@ -24,21 +25,14 @@ export default function ContactsPage() {
     setForm((current) => ({ ...current, [name]: type === 'checkbox' ? checked : value }))
   }
 
-  const onSubmit = async (event) => {
+  const onSubmit = (event) => {
     event.preventDefault()
     setError('')
     setMessage('')
     setSubmitting(true)
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      const data = await response.json()
-      if (!response.ok) throw new Error(data.error || 'Unable to send your message.')
-      setMessage(data.message || 'Thank you! Your message has been sent successfully.')
+      setMessage(sendContact(form))
       setForm({
         firstName: '',
         lastName: '',

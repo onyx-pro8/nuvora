@@ -1,23 +1,17 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { COMPANY } from '../data/site'
+import { subscribeNewsletter } from '../fake/messages'
 
 export default function Footer() {
   const [email, setEmail] = useState('')
   const [message, setMessage] = useState('')
 
-  const onSubmit = async (event) => {
+  const onSubmit = (event) => {
     event.preventDefault()
     setMessage('')
     try {
-      const response = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, source: 'footer' }),
-      })
-      const data = await response.json()
-      if (!response.ok) throw new Error(data.error || 'Unable to subscribe.')
-      setMessage(data.message || 'Thanks for subscribing!')
+      setMessage(subscribeNewsletter(email))
       setEmail('')
     } catch (error) {
       setMessage(error.message)

@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import SiteLayout from '../components/SiteLayout'
 import TermsContent from '../components/legal/TermsContent'
 import { BRAND, COMPANY } from '../data/site'
-import terms from '../data/subscription.json'
+import terms from '../data/subscription.json' with { type: 'json' }
+import { placeFakeOrder } from '../fake/placeOrder'
 import {
   addVipMembershipToCart,
   cartHasVipMembership,
@@ -145,18 +146,21 @@ export default function CheckoutPage() {
 
     if (showVipFee && !form.subscriptionConsent) {
       setMessage('Check the subscription consent box to authorize recurring NUVORA Membership billing.')
+      submitLock.current = false
       setSubmitting(false)
       return
     }
 
     if (!form.firstName.trim() || !form.lastName.trim() || !form.email.trim() || !form.address.trim()) {
       setMessage('Enter your name, email, and shipping address before placing the order.')
+      submitLock.current = false
       setSubmitting(false)
       return
     }
 
     if (!form.ageTerms || !form.refundPolicy) {
       setMessage('Accept the Terms & Conditions and Refund Policy before placing the order.')
+      submitLock.current = false
       setSubmitting(false)
       return
     }
@@ -164,30 +168,18 @@ export default function CheckoutPage() {
     const cardDigits = form.cardNumber.replace(/\D/g, '')
     if (cardDigits.length < 13 || !/^\d{2}\/\d{2}$/.test(form.cardExpiry) || form.cvv.length < 3 || !form.cardName.trim()) {
       setMessage('Enter the card number, expiry as MM/YY, CVV, and name on the card.')
+      submitLock.current = false
       setSubmitting(false)
       return
     }
 
-    const safeForm = { ...form }
-    delete safeForm.cardNumber
-    delete safeForm.cvv
-    delete safeForm.cardExpiry
-    delete safeForm.cardName
-
     try {
-      const response = await fetch('/api/checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...safeForm, cart, totals }),
-      })
-      const data = await response.json()
-      if (!response.ok) throw new Error(data.error || 'Unable to place your order.')
+      const data = placeFakeOrder({ form, cart, totals })
       sessionStorage.setItem(
         'nuvora-last-order',
         JSON.stringify({
           message: data.message,
           receipt: data.receipt,
-          confirmationText: data.confirmationText,
         })
       )
       clearCart()
