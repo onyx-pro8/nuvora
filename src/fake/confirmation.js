@@ -31,7 +31,7 @@ export function buildOrderConfirmation({ orderId, email, cart, totals, createdAt
   const receipt = {
     merchantName: terms.merchantName,
     orderId,
-    orderDate: createdAt,
+    orderDate: formatChargeDate(createdAt),
     customerEmail: email,
     currency: terms.currency,
     lines,

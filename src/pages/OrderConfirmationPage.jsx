@@ -10,15 +10,20 @@ export default function OrderConfirmationPage() {
   const [order, setOrder] = useState(null)
 
   useEffect(() => {
+    document.body.classList.add('receipt-page')
     try {
       const raw = sessionStorage.getItem('nuvora-last-order')
       setOrder(raw ? JSON.parse(raw) : null)
     } catch {
       setOrder(null)
     }
+    return () => document.body.classList.remove('receipt-page')
   }, [])
 
   const receipt = order?.receipt
+  const shipped = (receipt?.lines || []).filter(
+    (line) => line.sku !== 'vip-membership' && line.purchaseType !== 'vip-membership'
+  )
 
   return (
     <SiteLayout pageStyles={['checkout']}>
@@ -51,6 +56,10 @@ export default function OrderConfirmationPage() {
                       <span>Subject</span>
                       {receipt.emailSubject}
                     </p>
+                    <p>
+                      <span>Initial charge date</span>
+                      {receipt.initialChargeDate || receipt.orderDate}
+                    </p>
                   </header>
                   <div className="email-preview__body">
                     <h2>Order confirmation</h2>
@@ -59,7 +68,7 @@ export default function OrderConfirmationPage() {
                     <p>Order date: {receipt.orderDate}</p>
 
                     <h2>Products being shipped</h2>
-                    {receipt.lines.map((line) => (
+                    {shipped.map((line) => (
                       <p key={`${line.sku}-${line.purchaseType}`}>
                         Product: {line.name}
                         <br />

@@ -111,6 +111,14 @@
 .cart-total__row--total span:last-child { font-size: 24px; font-weight: 700; color: #1B5E3B; }
 
 /* Place Order Button */
+body.receipt-page .header-section {
+  position: static;
+}
+
+body.receipt-page .scroll-to-top {
+  display: none;
+}
+
 .email-preview {
   background: #fff;
   border-radius: 16px;
@@ -130,7 +138,7 @@
 
 .email-preview__meta p {
   display: grid;
-  grid-template-columns: 88px 1fr;
+  grid-template-columns: 168px 1fr;
   gap: 12px;
   margin: 0 0 8px;
   font-size: 16px;

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import SiteLayout from '../components/SiteLayout'
 import { BRAND, COMPANY, VIP } from '../data/site'
-import { addVipMembershipToCart } from '../utils/cart'
+import { addVipMembershipToCart, ensureMembershipIncludesBottle } from '../utils/cart'
 
 function VipFaqItem({ question, answer }) {
   const [open, setOpen] = useState(false)
@@ -22,6 +22,7 @@ export default function VipPage() {
 
   const joinVip = () => {
     addVipMembershipToCart()
+    ensureMembershipIncludesBottle()
     navigate('/checkout')
   }
 

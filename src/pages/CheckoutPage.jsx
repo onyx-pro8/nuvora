@@ -6,9 +6,9 @@ import { BRAND, COMPANY } from '../data/site'
 import terms from '../data/subscription.json' with { type: 'json' }
 import { placeFakeOrder } from '../fake/placeOrder'
 import {
-  addVipMembershipToCart,
   cartHasVipMembership,
   cartHasVipProduct,
+  ensureMembershipIncludesBottle,
   clearCart,
   formatMoney,
   getCartTotals,
@@ -104,9 +104,7 @@ export default function CheckoutPage() {
   const refreshCart = () => setCart(readCart())
 
   useEffect(() => {
-    if (cartHasVipProduct(readCart()) && !cartHasVipMembership(readCart())) {
-      addVipMembershipToCart()
-    }
+    ensureMembershipIncludesBottle()
     refreshCart()
     window.addEventListener('cart-updated', refreshCart)
     return () => window.removeEventListener('cart-updated', refreshCart)

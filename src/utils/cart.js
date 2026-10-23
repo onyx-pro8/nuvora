@@ -1,3 +1,4 @@
+import { PRODUCT } from '../data/site.js'
 import terms from '../data/subscription.json' with { type: 'json' }
 
 const VIP_SKU = terms.membershipSku
@@ -164,6 +165,32 @@ export function cartHasVipMembership(cart = readCart()) {
 
 export function cartHasVipProduct(cart = readCart()) {
   return cart.some((item) => item.purchaseType === 'vip')
+}
+
+export function ensureMembershipIncludesBottle() {
+  let cart = readCart()
+  const hasMembership = cartHasVipMembership(cart) || cartHasVipProduct(cart)
+  const hasBottle = cart.some((item) => item.sku === PRODUCT.sku)
+
+  if (hasMembership && !hasBottle) {
+    const option = PRODUCT.quantityOptions[0]
+    addProductToCart({
+      sku: PRODUCT.sku,
+      name: PRODUCT.name,
+      image: PRODUCT.gallery[0],
+      price: option.total.toFixed(2),
+      quantity: option.value,
+      purchaseType: 'onetime',
+      shipping: 0,
+    })
+  }
+
+  cart = readCart()
+  if (cartHasVipProduct(cart) && !cartHasVipMembership(cart)) {
+    addVipMembershipToCart()
+  }
+
+  return readCart()
 }
 
 export function getCartTotals(cart = readCart()) {
