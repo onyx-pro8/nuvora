@@ -223,6 +223,66 @@ export const HOW_IT_WORKS = [
   },
 ]
 
+export const INGREDIENTS = [
+  {
+    name: 'Organic Beet Root Powder',
+    amount: '2040 mg',
+    per: 'per 2-capsule serving',
+    kind: 'Active ingredient',
+    text: 'The labeled active ingredient. USDA Organic beet root powder in each 2-capsule serving — not a proprietary blend.',
+    details: [
+      'This is dried, powdered organic beet root. It is the only active ingredient in the bottle, listed on its own at 2040 mg. That amount is the full serving. It is not tucked into a proprietary blend.',
+      'A serving is 2 capsules. The bottle holds 90 capsules, which is 45 servings. The powder is the part of the formula people take for circulation, natural energy, and everyday cardiovascular support.',
+      'Organic beet root is a dietary source of naturally occurring nitrates. In the body, nitrates can support nitric oxide, which is commonly associated with healthy blood flow and stamina. This is a dietary supplement, not a drug, and it does not contain a stimulant.',
+    ],
+    facts: [
+      ['On the label', 'Organic Beet Root Powder'],
+      ['Amount', '2040 mg'],
+      ['Daily value', 'Not established'],
+      ['Plant', 'Beet root'],
+      ['In this bottle', 'The only active ingredient'],
+    ],
+  },
+  {
+    name: 'Vegetable cellulose',
+    amount: 'Capsule',
+    per: 'the shell, not part of the 2040 mg',
+    kind: 'Other ingredient',
+    text: 'The vegetable capsule. It holds the powder and keeps the formula vegan, with no gelatin.',
+    details: [
+      'Vegetable cellulose is the capsule itself. It is made from plant fiber and holds the beet root powder so you can swallow a serving with water instead of mixing a powder.',
+      'It is listed with the other ingredients, not in the 2040 mg row. The milligram amount on the label is the beet root powder only.',
+      'Because the shell is vegetable cellulose, the capsule does not use gelatin. That is why the formula is advertised as vegan.',
+    ],
+    facts: [
+      ['On the label', 'Vegetable cellulose (capsule)'],
+      ['Role', 'Capsule shell'],
+      ['Source', 'Plant fiber'],
+      ['Gelatin', 'Not used'],
+      ['Counted in 2040 mg', 'No'],
+    ],
+  },
+  {
+    name: 'Organic rice flour',
+    amount: 'Fill',
+    per: 'inside the capsule with the beet root',
+    kind: 'Other ingredient',
+    text: 'Organic rice flour used with the beet root powder inside the capsule.',
+    details: [
+      'Organic rice flour sits inside the capsule with the beet root powder. It helps the powder fill the capsule. It is an other ingredient, not a second active botanical.',
+      'Like the capsule shell, it is not part of the 2040 mg serving size. The supplement facts panel lists it separately from the beet root powder.',
+      'The finished product is advertised as USDA Organic, non-GMO, vegan, and gluten-free. Rice flour is there to carry the beet root powder, not to change the labeled serving.',
+    ],
+    facts: [
+      ['On the label', 'Organic rice flour'],
+      ['Role', 'Capsule fill'],
+      ['Source', 'Organic rice'],
+      ['Active ingredient', 'No'],
+      ['Counted in 2040 mg', 'No'],
+    ],
+  },
+]
+
 export const FORMULA_BADGES = [
   '2040 mg per serving',
   'USDA Organic',

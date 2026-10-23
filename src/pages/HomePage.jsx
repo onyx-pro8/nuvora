@@ -3,6 +3,7 @@ import FeaturedProduct from '../components/FeaturedProduct'
 import TrustBar from '../components/TrustBar'
 import HowItWorks from '../components/HowItWorks'
 import FormulaBadges from '../components/FormulaBadges'
+import Ingredients from '../components/Ingredients'
 import Benefits from '../components/Benefits'
 import ScienceStrip from '../components/ScienceStrip'
 import Audience from '../components/Audience'
@@ -26,6 +27,7 @@ export default function HomePage() {
         <TrustBar />
         <HowItWorks />
         <FormulaBadges />
+        <Ingredients />
         <Benefits />
         <ScienceStrip />
         <Audience />

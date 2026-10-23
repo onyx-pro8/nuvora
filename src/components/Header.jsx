@@ -47,6 +47,7 @@ export function Subheader() {
 const NAV_LINKS = [
   { to: '/', label: 'Home', page: 'index', end: true },
   { to: '/shop', label: 'Shop', page: 'shop' },
+  { to: '/ingredients', label: 'Ingredients', page: 'ingredients' },
   { to: '/vip', label: 'Members', page: 'vip' },
   { to: '/contacts', label: 'Contact', page: 'contacts' },
   { to: '/privacy-policy', label: 'Privacy', page: 'privacy-policy' },
@@ -54,9 +55,10 @@ const NAV_LINKS = [
   { to: '/cancellation-request', label: 'Easy Cancel', page: 'cancellation-request' },
 ]
 
-function navClass(pathname, link) {
-  const active =
-    link.end ? pathname === '/' : pathname === link.to || pathname.startsWith(`${link.to}/`)
+function navClass(location, link) {
+  const active = link.end
+    ? location.pathname === '/'
+    : location.pathname === link.to || location.pathname.startsWith(`${link.to}/`)
   return `nav-link get_page${active ? ' active' : ''}`
 }
 
@@ -110,7 +112,7 @@ export function Header({ menuOpen, setMenuOpen, cartCount = 0 }) {
               <Link
                 key={link.page}
                 to={link.to}
-                className={navClass(location.pathname, link)}
+                className={navClass(location, link)}
                 data-page={link.page}
                 onClick={closeMenu}
               >

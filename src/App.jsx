@@ -11,6 +11,7 @@ import VipPage from './pages/VipPage'
 import RefundPolicyPage from './pages/RefundPolicyPage'
 import ShippingPolicyPage from './pages/ShippingPolicyPage'
 import OrderConfirmationPage from './pages/OrderConfirmationPage'
+import IngredientsPage from './pages/IngredientsPage'
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<ShopPage />} />
+        <Route path="/ingredients" element={<IngredientsPage />} />
         <Route path="/product" element={<ProductPage />} />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route path="/contacts" element={<ContactsPage />} />

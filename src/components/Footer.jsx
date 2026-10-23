@@ -100,6 +100,9 @@ export default function Footer() {
             <Link to="/shop" className="get_page" data-page="shop">
               Shop
             </Link>
+            <Link to="/ingredients" className="get_page" data-page="ingredients">
+              Ingredients
+            </Link>
             <Link to="/vip" className="get_page" data-page="vip">
               Members
             </Link>

@@ -369,6 +369,28 @@ html.nuvora-atelier .formula-standard-card h3 {
   font-family: var(--font-display);
 }
 
+html.nuvora-atelier .ingredient-detail,
+html.nuvora-atelier .ingredients-badges li,
+html.nuvora-atelier .ingredients-facts th {
+  background: var(--cream);
+}
+
+html.nuvora-atelier .ingredient-detail {
+  border: 0;
+  border-top: 2px solid var(--moss);
+  border-radius: 0;
+}
+
+html.nuvora-atelier .ingredients-intro__photo {
+  background: #fff;
+  border-radius: 28px;
+}
+
+html.nuvora-atelier .ingredients-facts img {
+  background: var(--cream);
+  border-radius: 0;
+}
+
 html.nuvora-atelier .guarantee-section a,
 html.nuvora-atelier .detail-section--cta a:not(.btn-primary) {
   color: var(--moss);
